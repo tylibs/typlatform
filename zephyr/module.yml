@@ -1,0 +1,4 @@
+name: tinyplatform
+build:
+  cmake: ./
+  kconfig: ./Kconfig

@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: Copyright 2025 Clever Design (Switzerland) GmbH
+# SPDX-License-Identifier: Apache-2.0
+
+version: 1.0.4
+description: "TinyPlatform Library - platform implementations used in Tiny libraries"
+license: "Apache-2.0"
+repository: "https://github.com/tinybus/tinyplatform"
+dependencies:
+  idf: ">=5.0"
+tags:
+  - "architecture"
+files:
+  exclude:
+    - "docs"
+    - "docs/**/*"
