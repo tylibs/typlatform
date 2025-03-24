@@ -1,15 +1,18 @@
 cmake_minimum_required(VERSION 3.20)
 
-# if(NOT CMAKE_BUILD_EARLY_EXPANSION)
+# CHECK needed for esp-idf build system to avoid errors if(NOT
+# CMAKE_BUILD_EARLY_EXPANSION)
 if(NOT CMAKE_BUILD_EARLY_EXPANSION)
   message(
-    STATUS
-      "Building tinyplatform for ESP-IDF ******************* ${COMPONENT_LIB}")
-  add_library(tinylibs_interface INTERFACE)
-  tiny_library_named(tinylibs)
-  tiny_include_directories(${TINYPLATFORM_DIR}/include)
-  add_subdirectory(${TINYPLATFORM_DIR}/src)
-  # target_link_libraries(${COMPONENT_LIB} INTERFACE tinylibs) endif()
+    STATUS "Building tinylibs for ESP-IDF *******************${COMPONENT_LIB}")
+  tiny_library_named(tinysettings)
+  # Include tinyplatform
+
+  add_subdirectory(${TINYSETTINGS_DIR}/../tinyplatform
+                   ${TINYSETTINGS_DIR}/build/tiny)
+
+  tiny_include_directories(${TINYSETTINGS_DIR}/include)
+  add_subdirectory(${TINYSETTINGS_DIR}/src)
 endif()
 
 idf_component_register()
