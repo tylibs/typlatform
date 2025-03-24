@@ -7,12 +7,6 @@
 #include "tinyplatform-esp-config.h"
 #include <stdint.h>
 #include "tinyplatform/error.h"
-#include "tinyplatform/toolchain/toolchain.h"
-
-/**
- * This function initializes the scheduler service.
- *
- */
-tbError tbPlatformSchedulerInit(void);
+#include "tinyplatform/toolchain.h"
 
 #endif // TINYPLATFORM_PLATFORM_ESP_H_

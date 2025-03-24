@@ -11,11 +11,14 @@
 #include <esp_log.h>
 #include <stdarg.h>
 #include <stdio.h>
+#include "tinyplatform/toolchain.h"
 
 #include "platform-esp.h"
 #include "tinyplatform/logging.h"
 
-static const char *TAG = "tinyplatform";
+#if defined(CONFIG_TINYPLATFORM_LOG)
+static const char *TAG = "tiny";
+#endif
 
 /* Convert OT log level to zephyr log level. */
 static inline int log_translate(tbLogLevel aLogLevel)
@@ -53,7 +56,7 @@ void tbPlatLog(tbLogLevel aLogLevel, const char *aFormat, ...)
     va_end(param_list);
 
 #else
-    ARG_UNUSED(aLogLevel);
-    ARG_UNUSED(aFormat);
+    TB_UNUSED_VARIABLE(aLogLevel);
+    TB_UNUSED_VARIABLE(aFormat);
 #endif
 }
