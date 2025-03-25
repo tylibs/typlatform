@@ -15,18 +15,18 @@ LOG_MODULE_REGISTER(LOG_MODULE_NAME);
 #include "platform-zephyr.h"
 
 /* Convert OT log level to zephyr log level. */
-static inline int log_translate(tiLogLevel aLogLevel)
+static inline int log_translate(tinyLogLevel aLogLevel)
 {
     switch (aLogLevel)
     {
-    case TI_LOG_LEVEL_NONE:
-    case TI_LOG_LEVEL_ERROR:
+    case TINY_LOG_LEVEL_NONE:
+    case TINY_LOG_LEVEL_ERROR:
         return LOG_LEVEL_ERR;
-    case TI_LOG_LEVEL_WARN:
+    case TINY_LOG_LEVEL_WARN:
         return LOG_LEVEL_WRN;
-    case TI_LOG_LEVEL_INFO:
+    case TINY_LOG_LEVEL_INFO:
         return LOG_LEVEL_INF;
-    case TI_LOG_LEVEL_DEBG:
+    case TINY_LOG_LEVEL_DEBG:
         return LOG_LEVEL_DBG;
     default:
         break;
@@ -35,7 +35,7 @@ static inline int log_translate(tiLogLevel aLogLevel)
     return -1;
 }
 
-void tiLog(tiLogLevel aLogLevel, const char *aTag, const char *aFormat, ...)
+void tinyPlatLog(tinyLogLevel aLogLevel, const char *aTag, const char *aFormat, ...)
 {
     ARG_UNUSED(aTag);
 #if defined(CONFIG_TINYPLATFORM_LOG)

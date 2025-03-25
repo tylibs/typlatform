@@ -38,7 +38,7 @@ extern "C" {
 /**
  * Represents the OpenThread instance structure.
  */
-typedef struct tiInstance tiInstance;
+typedef struct tinyInstance tinyInstance;
 
 /**
  * Initializes the OpenThread library.
@@ -48,15 +48,15 @@ typedef struct tiInstance tiInstance;
  *
  * Is available and can only be used when support for multiple OpenThread instances is enabled.
  *
- * @param[in]     aInstanceBuffer      The buffer for OpenThread to use for allocating the tiInstance structure.
+ * @param[in]     aInstanceBuffer      The buffer for OpenThread to use for allocating the tinyInstance structure.
  * @param[in,out] aInstanceBufferSize  On input, the size of aInstanceBuffer. On output, if not enough space for
- *                                     tiInstance, the number of bytes required for tiInstance.
+ *                                     tinyInstance, the number of bytes required for tinyInstance.
  *
  * @returns  A pointer to the new OpenThread instance.
  *
- * @sa tiInstanceFinalize
+ * @sa tinyInstanceFinalize
  */
-tiInstance *tiInstanceInit(void *aInstanceBuffer, size_t *aInstanceBufferSize);
+tinyInstance *tinyInstanceInit(void *aInstanceBuffer, size_t *aInstanceBufferSize);
 
 /**
  * Initializes the static single instance of the OpenThread library.
@@ -68,7 +68,7 @@ tiInstance *tiInstanceInit(void *aInstanceBuffer, size_t *aInstanceBufferSize);
  *
  * @returns A pointer to the single OpenThread instance.
  */
-tiInstance *tiInstanceInitSingle(void);
+tinyInstance *tinyInstanceInitSingle(void);
 
 /**
  * Initializes the OpenThread instance.
@@ -84,7 +84,7 @@ tiInstance *tiInstanceInitSingle(void);
  *
  * @returns  A pointer to the new OpenThread instance.
  */
-tiInstance *tiInstanceInitMultiple(uint8_t aIdx);
+tinyInstance *tinyInstanceInitMultiple(uint8_t aIdx);
 
 /**
  * Gets the index of the OpenThread instance when multiple instance is in use.
@@ -96,7 +96,7 @@ tiInstance *tiInstanceInitMultiple(uint8_t aIdx);
  *
  * @returns The index of the OpenThread instance.
  */
-uint8_t tiInstanceGetIndex(tiInstance *aInstance);
+uint8_t tinyInstanceGetIndex(tinyInstance *aInstance);
 
 /**
  * Gets the instance identifier.
@@ -106,20 +106,20 @@ uint8_t tiInstanceGetIndex(tiInstance *aInstance);
  *
  * @returns The instance identifier.
  */
-uint32_t tiInstanceGetId(tiInstance *aInstance);
+uint32_t tinyInstanceGetId(tinyInstance *aInstance);
 
 /**
  * Indicates whether or not the instance is valid/initialized.
  *
- * The instance is considered valid if it is acquired and initialized using either `tiInstanceInitSingle()` (in single
- * instance case) or `tiInstanceInit()` (in multi instance case). A subsequent call to `tiInstanceFinalize()` causes
+ * The instance is considered valid if it is acquired and initialized using either `tinyInstanceInitSingle()` (in single
+ * instance case) or `tinyInstanceInit()` (in multi instance case). A subsequent call to `tinyInstanceFinalize()` causes
  * the instance to be considered as uninitialized.
  *
  * @param[in] aInstance A pointer to an OpenThread instance.
  *
  * @returns TRUE if the given instance is valid/initialized, FALSE otherwise.
  */
-bool tiInstanceIsInitialized(tiInstance *aInstance);
+bool tinyInstanceIsInitialized(tinyInstance *aInstance);
 
 /**
  * Disables the OpenThread library.
@@ -128,7 +128,7 @@ bool tiInstanceIsInitialized(tiInstance *aInstance);
  *
  * @param[in] aInstance A pointer to an OpenThread instance.
  */
-void tiInstanceFinalize(tiInstance *aInstance);
+void tinyInstanceFinalize(tinyInstance *aInstance);
 
 /**
  * Returns the current instance uptime (in msec).
@@ -141,7 +141,7 @@ void tiInstanceFinalize(tiInstance *aInstance);
  *
  * @returns The uptime (number of milliseconds).
  */
-uint64_t tiInstanceGetUptime(tiInstance *aInstance);
+uint64_t tinyInstanceGetUptime(tinyInstance *aInstance);
 
 #define OT_UPTIME_STRING_SIZE 24 ///< Recommended size for string representation of uptime.
 
@@ -160,7 +160,7 @@ uint64_t tiInstanceGetUptime(tiInstance *aInstance);
  * @param[out] aBuffer   A pointer to a char array to output the string.
  * @param[in]  aSize     The size of @p aBuffer (in bytes). Recommended to use `OT_UPTIME_STRING_SIZE`.
  */
-void tiInstanceGetUptimeAsString(tiInstance *aInstance, char *aBuffer, uint16_t aSize);
+void tinyInstanceGetUptimeAsString(tinyInstance *aInstance, char *aBuffer, uint16_t aSize);
 
 #define OT_CHANGED_IP6_ADDRESS_ADDED (1U << 0)             ///< IPv6 address was added
 #define OT_CHANGED_IP6_ADDRESS_REMOVED (1U << 1)           ///< IPv6 address was removed
@@ -220,7 +220,7 @@ typedef void (*otStateChangedCallback)(otChangedFlags aFlags, void *aContext);
  * @retval OT_ERROR_ALREADY  The callback was already registered.
  * @retval OT_ERROR_NO_BUFS  Could not add the callback due to resource constraints.
  */
-tiError otSetStateChangedCallback(tiInstance *aInstance, otStateChangedCallback aCallback, void *aContext);
+tinyError otSetStateChangedCallback(tinyInstance *aInstance, otStateChangedCallback aCallback, void *aContext);
 
 /**
  * Removes a callback to indicate when certain configuration or state changes within OpenThread.
@@ -229,17 +229,17 @@ tiError otSetStateChangedCallback(tiInstance *aInstance, otStateChangedCallback 
  * @param[in]  aCallback   A pointer to a function that is called with certain configuration or state changes.
  * @param[in]  aContext    A pointer to application-specific context.
  */
-void otRemoveStateChangeCallback(tiInstance *aInstance, otStateChangedCallback aCallback, void *aContext);
+void otRemoveStateChangeCallback(tinyInstance *aInstance, otStateChangedCallback aCallback, void *aContext);
 
 /**
  * Triggers a platform reset.
  *
  * The reset process ensures that all the OpenThread state/info (stored in volatile memory) is erased. Note that the
- * `otPlatformReset` does not erase any persistent state/info saved in non-volatile memory.
+ * `tinyPlatformReset` does not erase any persistent state/info saved in non-volatile memory.
  *
  * @param[in]  aInstance  A pointer to an OpenThread instance.
  */
-void tiInstanceReset(tiInstance *aInstance);
+void tinyInstanceReset(tinyInstance *aInstance);
 
 /**
  * Triggers a platform reset to bootloader mode, if supported.
@@ -252,14 +252,14 @@ void tiInstanceReset(tiInstance *aInstance);
  * @retval OT_ERROR_BUSY         Failed due to another operation is ongoing.
  * @retval OT_ERROR_NOT_CAPABLE  Not capable of resetting to bootloader.
  */
-tiError tiInstanceResetToBootloader(tiInstance *aInstance);
+tinyError tinyInstanceResetToBootloader(tinyInstance *aInstance);
 
 /**
  * Deletes all the settings stored on non-volatile memory, and then triggers a platform reset.
  *
  * @param[in]  aInstance  A pointer to an OpenThread instance.
  */
-void tiInstanceFactoryReset(tiInstance *aInstance);
+void tinyInstanceFactoryReset(tinyInstance *aInstance);
 
 /**
  * Resets the internal states of the OpenThread radio stack.
@@ -270,7 +270,7 @@ void tiInstanceFactoryReset(tiInstance *aInstance);
  *
  * @param[in]  aInstance  A pointer to an OpenThread instance.
  */
-void tiInstanceResetRadioStack(tiInstance *aInstance);
+void tinyInstanceResetRadioStack(tinyInstance *aInstance);
 
 /**
  * Erases all the OpenThread persistent info (network settings) stored on non-volatile memory.
@@ -281,7 +281,7 @@ void tiInstanceResetRadioStack(tiInstance *aInstance);
  * @retval OT_ERROR_NONE           All persistent info/state was erased successfully.
  * @retval OT_ERROR_INVALID_STATE  Device is not in `disabled` state/role.
  */
-tiError tiInstanceErasePersistentInfo(tiInstance *aInstance);
+tinyError tinyInstanceErasePersistentInfo(tinyInstance *aInstance);
 
 /**
  * Gets the OpenThread version string.
@@ -297,7 +297,7 @@ const char *otGetVersionString(void);
  *
  * @returns A pointer to the OpenThread radio version.
  */
-const char *otGetRadioVersionString(tiInstance *aInstance);
+const char *otGetRadioVersionString(tinyInstance *aInstance);
 
 /**
  * @}

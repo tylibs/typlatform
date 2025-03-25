@@ -32,7 +32,7 @@ extern "C" {
  * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
  * #if/#else/#endif.
  */
-#define TI_LOG_LEVEL_NONE 0
+#define TINY_LOG_LEVEL_NONE 0
 
 /**
  * Log level Critical.
@@ -40,7 +40,7 @@ extern "C" {
  * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
  * #if/#else/#endif.
  */
-#define TI_LOG_LEVEL_ERROR 1
+#define TINY_LOG_LEVEL_ERROR 1
 
 /**
  * Log level Warning.
@@ -48,7 +48,7 @@ extern "C" {
  * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
  * #if/#else/#endif.
  */
-#define TI_LOG_LEVEL_WARN 2
+#define TINY_LOG_LEVEL_WARN 2
 
 /**
  * Log level Informational.
@@ -56,7 +56,7 @@ extern "C" {
  * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
  * #if/#else/#endif.
  */
-#define TI_LOG_LEVEL_INFO 3
+#define TINY_LOG_LEVEL_INFO 3
 
 /**
  * Log level Debug.
@@ -64,12 +64,12 @@ extern "C" {
  * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
  * #if/#else/#endif.
  */
-#define TI_LOG_LEVEL_DEBG 4
+#define TINY_LOG_LEVEL_DEBG 4
 
 /**
  * Represents the log level.
  */
-typedef int tiLogLevel;
+typedef int tinyLogLevel;
 
 /**
  * Outputs logs.
@@ -79,7 +79,7 @@ typedef int tiLogLevel;
  * @param[in]  aFormat     A pointer to the format string.
  * @param[in]  ...         Arguments for the format specification.
  */
-void tiLog(tiLogLevel aLogLevel, const char *aTag, const char *aFormat, ...);
+void tinyPlatLog(tinyLogLevel aLogLevel, const char *aTag, const char *aFormat, ...);
 
 /**
  * @}

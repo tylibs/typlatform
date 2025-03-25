@@ -17,18 +17,18 @@
 #include "tinyplatform/logging.h"
 
 /* Convert OT log level to zephyr log level. */
-static inline int log_translate(tiLogLevel aLogLevel)
+static inline int log_translate(tinyLogLevel aLogLevel)
 {
     switch (aLogLevel)
     {
-    case TI_LOG_LEVEL_NONE:
-    case TI_LOG_LEVEL_ERROR:
+    case TINY_LOG_LEVEL_NONE:
+    case TINY_LOG_LEVEL_ERROR:
         return ESP_LOG_ERROR;
-    case TI_LOG_LEVEL_WARN:
+    case TINY_LOG_LEVEL_WARN:
         return ESP_LOG_WARN;
-    case TI_LOG_LEVEL_INFO:
+    case TINY_LOG_LEVEL_INFO:
         return ESP_LOG_INFO;
-    case TI_LOG_LEVEL_DEBG:
+    case TINY_LOG_LEVEL_DEBG:
         return ESP_LOG_DEBUG;
     default:
         break;
@@ -37,7 +37,7 @@ static inline int log_translate(tiLogLevel aLogLevel)
     return -1;
 }
 
-void tiLog(tiLogLevel aLogLevel, const char *aTag, const char *aFormat, ...)
+void tinyPlatLog(tinyLogLevel aLogLevel, const char *aTag, const char *aFormat, ...)
 {
 #if defined(CONFIG_TINYPLATFORM_LOG)
     int     level = log_translate(aLogLevel);
@@ -88,8 +88,8 @@ void tiLog(tiLogLevel aLogLevel, const char *aTag, const char *aFormat, ...)
     esp_log_write(level, aTag, LOG_RESET_COLOR "\n");
 
 #else
-    TI_UNUSED_VARIABLE(aLogLevel);
-    TI_UNUSED_VARIABLE(aTag);
-    TI_UNUSED_VARIABLE(aFormat);
+    TINY_UNUSED_VARIABLE(aLogLevel);
+    TINY_UNUSED_VARIABLE(aTag);
+    TINY_UNUSED_VARIABLE(aFormat);
 #endif
 }

@@ -17,38 +17,38 @@ extern "C" {
 /**
  * Represents error codes
  */
-typedef enum tiError
+typedef enum tinyError
 {
     /**
      * No error.
      */
-    TI_ERROR_NONE = 0,
+    TINY_ERROR_NONE = 0,
 
     /**
      * Operational failed.
      */
-    TI_ERROR_SUBSCRIBER_COUNT_EXCEEDED = 1,
+    TINY_ERROR_SUBSCRIBER_COUNT_EXCEEDED = 1,
 
     /**
      * Not found.
      */
-    TI_ERROR_NOT_FOUND = 2,
+    TINY_ERROR_NOT_FOUND = 2,
 
     /**
      * No Buffers.
      */
-    TI_ERROR_NO_BUFS = 3,
+    TINY_ERROR_NO_BUFS = 3,
 
     /**
      * The number of defined errors.
      */
-    TI_NUM_ERRORS,
+    TINY_NUM_ERRORS,
 
     /**
      * Generic error (should not use).
      */
-    TI_ERROR_GENERIC = 255,
-} tiError;
+    TINY_ERROR_GENERIC = 255,
+} tinyError;
 
 #ifdef __cplusplus
 } // extern "C"

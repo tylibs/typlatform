@@ -26,12 +26,12 @@ extern "C" {
 // https://gcc.gnu.org/onlinedocs/gcc/Common-Variable-Attributes.html
 // http://www.keil.com/support/man/docs/armcc/armcc_chr1359124973480.htm
 
-#define TI_TOOL_PACKED_BEGIN
-#define TI_TOOL_PACKED_FIELD __attribute__((packed))
-#define TI_TOOL_PACKED_END __attribute__((packed))
-#define TI_TOOL_WEAK __attribute__((weak))
+#define TINY_TOOL_PACKED_BEGIN
+#define TINY_TOOL_PACKED_FIELD __attribute__((packed))
+#define TINY_TOOL_PACKED_END __attribute__((packed))
+#define TINY_TOOL_WEAK __attribute__((weak))
 
-#define TI_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(aFmtIndex, aStartIndex) \
+#define TINY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(aFmtIndex, aStartIndex) \
     __attribute__((format(printf, aFmtIndex, aStartIndex)))
 
 #elif defined(__ICCARM__) || defined(__ICC8051__)
@@ -40,23 +40,23 @@ extern "C" {
 
 #include "intrinsics.h"
 
-#define TI_TOOL_PACKED_BEGIN __packed
-#define TI_TOOL_PACKED_FIELD
-#define TI_TOOL_PACKED_END
-#define TI_TOOL_WEAK __weak
+#define TINY_TOOL_PACKED_BEGIN __packed
+#define TINY_TOOL_PACKED_FIELD
+#define TINY_TOOL_PACKED_END
+#define TINY_TOOL_WEAK __weak
 
-#define TI_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(aFmtIndex, aStartIndex)
+#define TINY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(aFmtIndex, aStartIndex)
 
 #elif defined(__SDCC)
 
 // Structures are packed by default in sdcc, as it primarily targets 8-bit MCUs.
 
-#define TI_TOOL_PACKED_BEGIN
-#define TI_TOOL_PACKED_FIELD
-#define TI_TOOL_PACKED_END
-#define TI_TOOL_WEAK
+#define TINY_TOOL_PACKED_BEGIN
+#define TINY_TOOL_PACKED_FIELD
+#define TINY_TOOL_PACKED_END
+#define TINY_TOOL_WEAK
 
-#define TI_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(aFmtIndex, aStartIndex)
+#define TINY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(aFmtIndex, aStartIndex)
 
 #else
 
@@ -64,23 +64,23 @@ extern "C" {
 
 // Symbols for Doxygen
 
-#define TI_TOOL_PACKED_BEGIN
-#define TI_TOOL_PACKED_FIELD
-#define TI_TOOL_PACKED_END
-#define TI_TOOL_WEAK
+#define TINY_TOOL_PACKED_BEGIN
+#define TINY_TOOL_PACKED_FIELD
+#define TINY_TOOL_PACKED_END
+#define TINY_TOOL_WEAK
 
-#define TI_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(aFmtIndex, aStartIndex)
+#define TINY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(aFmtIndex, aStartIndex)
 
 #endif
 
 /**
- * @def TI_UNUSED_VARIABLE
+ * @def TINY_UNUSED_VARIABLE
  *
  * Suppress unused variable warning in specific toolchains.
  */
 
 /**
- * @def TI_UNREACHABLE_CODE
+ * @def TINY_UNREACHABLE_CODE
  *
  * Suppress Unreachable code warning in specific toolchains.
  */
@@ -89,7 +89,7 @@ extern "C" {
 
 #include <stddef.h>
 
-#define TI_UNUSED_VARIABLE(VARIABLE) \
+#define TINY_UNUSED_VARIABLE(VARIABLE) \
     do                               \
     {                                \
         if (&VARIABLE == NULL)       \
@@ -97,7 +97,7 @@ extern "C" {
         }                            \
     } while (false)
 
-#define TI_UNREACHABLE_CODE(CODE)                                                                    \
+#define TINY_UNREACHABLE_CODE(CODE)                                                                    \
     _Pragma("diag_suppress=Pe111") _Pragma("diag_suppress=Pe128") CODE _Pragma("diag_default=Pe111") \
         _Pragma("diag_default=Pe128")
 
@@ -105,7 +105,7 @@ extern "C" {
 
 #include <stddef.h>
 
-#define TI_UNUSED_VARIABLE(VARIABLE) \
+#define TINY_UNUSED_VARIABLE(VARIABLE) \
     do                               \
     {                                \
         if (&VARIABLE == NULL)       \
@@ -113,13 +113,13 @@ extern "C" {
         }                            \
     } while (false)
 
-#define TI_UNREACHABLE_CODE(CODE) CODE
+#define TINY_UNREACHABLE_CODE(CODE) CODE
 
 #elif defined(__TI_ARM__)
 
 #include <stddef.h>
 
-#define TI_UNUSED_VARIABLE(VARIABLE) \
+#define TINY_UNUSED_VARIABLE(VARIABLE) \
     do                               \
     {                                \
         if (&VARIABLE == NULL)       \
@@ -131,18 +131,18 @@ extern "C" {
  * #112-D statement is unreachable
  * #129-D loop is not reachable
  */
-#define TI_UNREACHABLE_CODE(CODE) \
+#define TINY_UNREACHABLE_CODE(CODE) \
     _Pragma("diag_push") _Pragma("diag_suppress 112") _Pragma("diag_suppress 129") CODE _Pragma("diag_pop")
 
 #else
 
-#define TI_UNUSED_VARIABLE(VARIABLE) \
+#define TINY_UNUSED_VARIABLE(VARIABLE) \
     do                               \
     {                                \
         (void)(VARIABLE);            \
     } while (false)
 
-#define TI_UNREACHABLE_CODE(CODE) CODE
+#define TINY_UNREACHABLE_CODE(CODE) CODE
 
 #endif
 

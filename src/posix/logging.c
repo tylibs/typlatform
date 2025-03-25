@@ -8,26 +8,26 @@
 #include "platform-posix.h"
 #include "tinyplatform/logging.h"
 
-void tiLog(tiLogLevel aLogLevel, const char *aTag, const char *aFormat, ...)
+void tinyPlatLog(tinyLogLevel aLogLevel, const char *aTag, const char *aFormat, ...)
 {
 #if defined(CONFIG_TINYPLATFORM_LOG)
     va_list args;
 
     switch (aLogLevel)
     {
-    case TI_LOG_LEVEL_NONE:
+    case TINY_LOG_LEVEL_NONE:
         aLogLevel = LOG_ALERT;
         break;
-    case TI_LOG_LEVEL_ERROR:
+    case TINY_LOG_LEVEL_ERROR:
         aLogLevel = LOG_CRIT;
         break;
-    case TI_LOG_LEVEL_WARN:
+    case TINY_LOG_LEVEL_WARN:
         aLogLevel = LOG_WARNING;
         break;
-    case TI_LOG_LEVEL_INFO:
+    case TINY_LOG_LEVEL_INFO:
         aLogLevel = LOG_INFO;
         break;
-    case TI_LOG_LEVEL_DEBG:
+    case TINY_LOG_LEVEL_DEBG:
         aLogLevel = LOG_DEBUG;
         break;
     default:
