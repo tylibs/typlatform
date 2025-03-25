@@ -75,10 +75,11 @@ typedef int tbLogLevel;
  * Outputs logs.
  *
  * @param[in]  aLogLevel   The log level.
+ * @param[in]  aTag        A pointer to the tag.
  * @param[in]  aFormat     A pointer to the format string.
  * @param[in]  ...         Arguments for the format specification.
  */
-void tbPlatLog(tbLogLevel aLogLevel, const char *aFormat, ...);
+void tbPlatLog(tbLogLevel aLogLevel, const char *aTag, const char *aFormat, ...);
 
 /**
  * @}

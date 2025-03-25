@@ -8,7 +8,7 @@
 #include "platform-posix.h"
 #include "tinyplatform/logging.h"
 
-void tbPlatLog(tbLogLevel aLogLevel, const char *aFormat, ...)
+void tbPlatLog(tbLogLevel aLogLevel, const char *aTag, const char *aFormat, ...)
 {
 #if defined(CONFIG_TINYPLATFORM_LOG)
     va_list args;
@@ -35,6 +35,7 @@ void tbPlatLog(tbLogLevel aLogLevel, const char *aFormat, ...)
         break;
     }
 
+    printf("%s: ", aTag);
     va_start(args, aFormat);
 #if defined(CONFIG_TINYPLATFORM_SYSLOG)
     vsyslog(aLogLevel, aFormat, args);
@@ -45,6 +46,7 @@ void tbPlatLog(tbLogLevel aLogLevel, const char *aFormat, ...)
     va_end(args);
 #else
     ARG_UNUSED(aLogLevel);
+    ARG_UNUSED(aTag);
     ARG_UNUSED(aFormat);
 #endif
 }

@@ -35,8 +35,9 @@ static inline int log_translate(tbLogLevel aLogLevel)
     return -1;
 }
 
-void tbPlatLog(tbLogLevel aLogLevel, const char *aFormat, ...)
+void tbPlatLog(tbLogLevel aLogLevel, const char *aTag, const char *aFormat, ...)
 {
+    ARG_UNUSED(aTag);
 #if defined(CONFIG_TINYPLATFORM_LOG)
     int     level = log_translate(aLogLevel);
     va_list param_list;

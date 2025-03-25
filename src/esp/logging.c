@@ -16,10 +16,6 @@
 #include "platform-esp.h"
 #include "tinyplatform/logging.h"
 
-#if defined(CONFIG_TINYPLATFORM_LOG)
-static const char *TAG = "tiny";
-#endif
-
 /* Convert OT log level to zephyr log level. */
 static inline int log_translate(tbLogLevel aLogLevel)
 {
@@ -41,7 +37,7 @@ static inline int log_translate(tbLogLevel aLogLevel)
     return -1;
 }
 
-void tbPlatLog(tbLogLevel aLogLevel, const char *aFormat, ...)
+void tbPlatLog(tbLogLevel aLogLevel, const char *aTag, const char *aFormat, ...)
 {
 #if defined(CONFIG_TINYPLATFORM_LOG)
     int     level = log_translate(aLogLevel);
@@ -51,12 +47,49 @@ void tbPlatLog(tbLogLevel aLogLevel, const char *aFormat, ...)
         return;
     }
 
+    if (level == ESP_LOG_ERROR)
+    {
+        esp_log_write(level, aTag,
+                      LOG_COLOR_E "E"
+                                  "(%s) %s: ",
+                      esp_log_system_timestamp(), aTag);
+    }
+    else if (level == ESP_LOG_WARN)
+    {
+        esp_log_write(level, aTag,
+                      LOG_COLOR_W "W"
+                                  "(%s) %s: ",
+                      esp_log_system_timestamp(), aTag);
+    }
+    else if (level == ESP_LOG_DEBUG)
+    {
+        esp_log_write(level, aTag,
+                      LOG_COLOR_D "D"
+                                  "(%s) %s: ",
+                      esp_log_system_timestamp(), aTag);
+    }
+    else if (level == ESP_LOG_VERBOSE)
+    {
+        esp_log_write(level, aTag,
+                      LOG_COLOR_V "V"
+                                  "(%s) %s: ",
+                      esp_log_system_timestamp(), aTag);
+    }
+    else
+    {
+        esp_log_write(level, aTag,
+                      LOG_COLOR_I "I"
+                                  "(%s) %s: ",
+                      esp_log_system_timestamp(), aTag);
+    }
     va_start(param_list, aFormat);
-    esp_log_writev(level, TAG, aFormat, param_list);
+    esp_log_writev(level, aTag, aFormat, param_list);
     va_end(param_list);
+    esp_log_write(level, aTag, LOG_RESET_COLOR "\n");
 
 #else
     TB_UNUSED_VARIABLE(aLogLevel);
+    TB_UNUSED_VARIABLE(aTag);
     TB_UNUSED_VARIABLE(aFormat);
 #endif
 }
