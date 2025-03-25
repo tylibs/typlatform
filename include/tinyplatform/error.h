@@ -30,6 +30,16 @@ typedef enum tiError
     TI_ERROR_SUBSCRIBER_COUNT_EXCEEDED = 1,
 
     /**
+     * Not found.
+     */
+    TI_ERROR_NOT_FOUND = 2,
+
+    /**
+     * No Buffers.
+     */
+    TI_ERROR_NO_BUFS = 3,
+
+    /**
      * The number of defined errors.
      */
     TI_NUM_ERRORS,

@@ -7,5 +7,3 @@ tiny_library_named(tiny)
 tiny_include_directories(${TINYPLATFORM_DIR}/include)
 add_subdirectory(${TINYPLATFORM_DIR}/src)
 target_link_libraries(${COMPONENT_LIB} INTERFACE tiny)
-
-message(STATUS "Building tinyplatform *******************${COMPONENT_LIB}")
