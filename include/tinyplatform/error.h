@@ -17,7 +17,7 @@ extern "C" {
 /**
  * Represents error codes
  */
-typedef enum tbError
+typedef enum tiError
 {
     /**
      * No error.
@@ -38,7 +38,7 @@ typedef enum tbError
      * Generic error (should not use).
      */
     TI_ERROR_GENERIC = 255,
-} tbError;
+} tiError;
 
 #ifdef __cplusplus
 } // extern "C"
