@@ -13,7 +13,7 @@ set(TINYPLATFORM_DIR ${CMAKE_CURRENT_LIST_DIR})
 set(TINYCOMMON_DIR ${CMAKE_CURRENT_LIST_DIR}/lib/tinycommon)
 set(CMAKE_MODULE_PATH "${TINYPLATFORM_DIR}/platform" "${TINYCOMMON_DIR}/cmake")
 
-# add build extensions for tinylibs
+# add build extensions for tiny
 include(extensions)
 
 # build the platform specific compoentents

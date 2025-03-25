@@ -20,7 +20,7 @@ extern "C" {
  *       when initialization of TinyPlatform's drivers is most appropriate.
  *
  */
-void tbPlatformInit(void);
+void tiPlatformInit(void);
 
 /**
  * Performs all platform-specific deinitialization for TinyPlatform's drivers.
@@ -28,7 +28,7 @@ void tbPlatformInit(void);
  * @note This function is not called by the TinyPlatform library. Instead, the system/RTOS should call this function
  *       when deinitialization of TinyPlatform's drivers is most appropriate.
  */
-void tbPlatformDeinit(void);
+void tiPlatformDeinit(void);
 
 #ifdef __cplusplus
 } // end of extern "C"

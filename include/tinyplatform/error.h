@@ -22,22 +22,22 @@ typedef enum tbError
     /**
      * No error.
      */
-    TB_ERROR_NONE = 0,
+    TI_ERROR_NONE = 0,
 
     /**
      * Operational failed.
      */
-    TB_ERROR_SUBSCRIBER_COUNT_EXCEEDED = 1,
+    TI_ERROR_SUBSCRIBER_COUNT_EXCEEDED = 1,
 
     /**
      * The number of defined errors.
      */
-    TB_NUM_ERRORS,
+    TI_NUM_ERRORS,
 
     /**
      * Generic error (should not use).
      */
-    TB_ERROR_GENERIC = 255,
+    TI_ERROR_GENERIC = 255,
 } tbError;
 
 #ifdef __cplusplus

@@ -9,4 +9,4 @@
 
 #include "platform-esp.h"
 
-void tbPlatformInit(void) {}
+void tiPlatformInit(void) {}
