@@ -1,6 +1,8 @@
 #ifndef INSTANCE_H_
 #define INSTANCE_H_
-#include "common/non_copyable.hpp"
+
+#include <tiny/log.hpp>
+#include <tiny/common/non_copyable.hpp>
 
 typedef struct tinyInstance
 {
@@ -37,6 +39,32 @@ public:
      * @returns TRUE if the instance is valid/initialized, FALSE otherwise.
      */
     bool IsInitialized(void) const { return mIsInitialized; }
+
+    /**
+     * Returns the active log level.
+     *
+     * @returns The log level.
+     */
+    static LogLevel GetLogLevel(void)
+#if TINY_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE
+    {
+        return sLogLevel;
+    }
+#else
+    {
+        return static_cast<LogLevel>(TINY_CONFIG_LOG_LEVEL);
+    }
+#endif
+
+#if TINY_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE
+    /**
+     * Sets the log level.
+     *
+     * @param[in] aLogLevel  A log level.
+     */
+    static void SetLogLevel(LogLevel aLogLevel);
+#endif
+
     /**
      * Finalizes the OpenThread instance.
      *
@@ -47,6 +75,9 @@ public:
 private:
     Instance(void);
     void AfterInit(void);
+#if TINY_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE
+    static LogLevel sLogLevel;
+#endif
     bool mIsInitialized;
 };
 } // namespace tiny

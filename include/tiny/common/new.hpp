@@ -8,7 +8,7 @@
 
 #include <stddef.h>
 
-#include "tinyplatform/toolchain.h"
+#include "tiny/platform/toolchain.h"
 
 inline void *operator new(size_t, void *p) throw()
 {

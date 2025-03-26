@@ -1,7 +1,7 @@
-#include "tinyplatform/instance.h"
+#include "tiny/instance.h"
 #include "instance.hpp"
-#include "common/code_utils.hpp"
-#include "common/new.hpp"
+#include "tiny/common/code_utils.hpp"
+#include "tiny/common/new.hpp"
 
 /********************************************
  * C API

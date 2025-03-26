@@ -6,7 +6,7 @@
 
 #include "tinyplatform-config.h"
 #include <stdint.h>
-#include "tinyplatform/error.h"
-#include "tinyplatform/toolchain.h"
+#include "tiny/error.h"
+#include "tiny/platform/toolchain.h"
 
 #endif // PLATFORM_POSIX_H_

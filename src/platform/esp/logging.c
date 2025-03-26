@@ -11,10 +11,10 @@
 #include <esp_log.h>
 #include <stdarg.h>
 #include <stdio.h>
-#include "tinyplatform/toolchain.h"
+#include "tiny/toolchain.h"
 
 #include "platform-esp.h"
-#include "tinyplatform/logging.h"
+#include "tiny/logging.h"
 
 /* Convert OT log level to zephyr log level. */
 static inline int log_translate(tinyLogLevel aLogLevel)

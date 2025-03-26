@@ -9,8 +9,8 @@
  * utilize toolchain specific attributes and/or pragmas.
  */
 
-#ifndef TINYPLATFORM_INCLUDE_TOOLCHAIN_H_
-#define TINYPLATFORM_INCLUDE_TOOLCHAIN_H_
+#ifndef TINY_INCLUDE_TOOLCHAIN_H_
+#define TINY_INCLUDE_TOOLCHAIN_H_
 
 #include <stdbool.h>
 #include <stdint.h>
@@ -90,14 +90,14 @@ extern "C" {
 #include <stddef.h>
 
 #define TINY_UNUSED_VARIABLE(VARIABLE) \
-    do                               \
-    {                                \
-        if (&VARIABLE == NULL)       \
-        {                            \
-        }                            \
+    do                                 \
+    {                                  \
+        if (&VARIABLE == NULL)         \
+        {                              \
+        }                              \
     } while (false)
 
-#define TINY_UNREACHABLE_CODE(CODE)                                                                    \
+#define TINY_UNREACHABLE_CODE(CODE)                                                                  \
     _Pragma("diag_suppress=Pe111") _Pragma("diag_suppress=Pe128") CODE _Pragma("diag_default=Pe111") \
         _Pragma("diag_default=Pe128")
 
@@ -106,11 +106,11 @@ extern "C" {
 #include <stddef.h>
 
 #define TINY_UNUSED_VARIABLE(VARIABLE) \
-    do                               \
-    {                                \
-        if (&VARIABLE == NULL)       \
-        {                            \
-        }                            \
+    do                                 \
+    {                                  \
+        if (&VARIABLE == NULL)         \
+        {                              \
+        }                              \
     } while (false)
 
 #define TINY_UNREACHABLE_CODE(CODE) CODE
@@ -120,11 +120,11 @@ extern "C" {
 #include <stddef.h>
 
 #define TINY_UNUSED_VARIABLE(VARIABLE) \
-    do                               \
-    {                                \
-        if (&VARIABLE == NULL)       \
-        {                            \
-        }                            \
+    do                                 \
+    {                                  \
+        if (&VARIABLE == NULL)         \
+        {                              \
+        }                              \
     } while (false)
 
 /*
@@ -137,17 +137,34 @@ extern "C" {
 #else
 
 #define TINY_UNUSED_VARIABLE(VARIABLE) \
-    do                               \
-    {                                \
-        (void)(VARIABLE);            \
+    do                                 \
+    {                                  \
+        (void)(VARIABLE);              \
     } while (false)
 
 #define TINY_UNREACHABLE_CODE(CODE) CODE
 
+#endif
+/**
+ * @def TINY_FALL_THROUGH
+ *
+ * Suppress fall through warning in specific compiler.
+ */
+#if defined(__cplusplus) && (__cplusplus >= 201703L)
+#define TINY_FALL_THROUGH [[fallthrough]]
+#elif defined(__clang__)
+#define TINY_FALL_THROUGH [[clang::fallthrough]]
+#elif defined(__GNUC__) && (__GNUC__ >= 7)
+#define TINY_FALL_THROUGH __attribute__((fallthrough))
+#else
+#define TINY_FALL_THROUGH \
+    do                    \
+    {                     \
+    } while (false) /* fallthrough */
 #endif
 
 #ifdef __cplusplus
 } // extern "C"
 #endif
 
-#endif /* TINYPLATFORM_INCLUDE_TOOLCHAIN_H_ */
+#endif /* TINY_INCLUDE_TOOLCHAIN_H_ */

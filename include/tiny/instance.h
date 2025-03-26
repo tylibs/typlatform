@@ -4,14 +4,13 @@
  *  This file defines the OpenThread Instance API.
  */
 
-#ifndef TINYPLATFORM_INSTANCE_H_
-#define TINYPLATFORM_INSTANCE_H_
+#ifndef TINY_INSTANCE_H_
+#define TINY_INSTANCE_H_
 
 #include <stdlib.h>
 
-#include <tinyplatform/error.h>
-#include <tinyplatform/logging.h>
-#include <tinyplatform/toolchain.h>
+#include <tiny/error.h>
+#include <tiny/platform/toolchain.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -24,7 +23,7 @@ extern "C" {
  *
  * @note This number versions both OpenThread platform and user APIs.
  */
-#define TINYPLATFORM_API_VERSION (001)
+#define TINY_API_VERSION (001)
 
 /**
  * @addtogroup api-instance

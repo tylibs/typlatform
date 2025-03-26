@@ -1,14 +1,7 @@
 // SPDX-FileCopyrightText: Copyright 2025 Clever Design (Switzerland) GmbH
 // SPDX-License-Identifier: Apache-2.0
-
-/**
- * @file
- * @brief
- *   This file includes the platform abstraction for the debug log service.
- */
-
-#ifndef TINYPLATFORM_PLATFORM_LOGGING_H_
-#define TINYPLATFORM_PLATFORM_LOGGING_H_
+#ifndef TINY_PLATFORM_LOGGING_H_
+#define TINY_PLATFORM_LOGGING_H_
 
 #include <stdarg.h>
 #include <stdint.h>
@@ -40,7 +33,7 @@ extern "C" {
  * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
  * #if/#else/#endif.
  */
-#define TINY_LOG_LEVEL_ERROR 1
+#define TINY_LOG_LEVEL_CRIT 1
 
 /**
  * Log level Warning.
@@ -51,12 +44,20 @@ extern "C" {
 #define TINY_LOG_LEVEL_WARN 2
 
 /**
+ * Log level Notice.
+ *
+ * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
+ * #if/#else/#endif.
+ */
+#define TINY_LOG_LEVEL_NOTE 3
+
+/**
  * Log level Informational.
  *
  * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
  * #if/#else/#endif.
  */
-#define TINY_LOG_LEVEL_INFO 3
+#define TINY_LOG_LEVEL_INFO 4
 
 /**
  * Log level Debug.
@@ -64,22 +65,39 @@ extern "C" {
  * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
  * #if/#else/#endif.
  */
-#define TINY_LOG_LEVEL_DEBG 4
+#define TINY_LOG_LEVEL_DEBG 5
 
 /**
  * Represents the log level.
  */
 typedef int tinyLogLevel;
 
+#define TINY_LOG_REGION_CORE "core"
+
 /**
  * Outputs logs.
  *
+ * Note that the support for log region is removed. The OT core will always emit all logs with `TINY_LOG_REGION_CORE`
+ * as @p aLogRegion.
+ *
  * @param[in]  aLogLevel   The log level.
- * @param[in]  aTag        A pointer to the tag.
+ * @param[in]  aLogRegion  The log region.
  * @param[in]  aFormat     A pointer to the format string.
  * @param[in]  ...         Arguments for the format specification.
  */
-void tinyPlatLog(tinyLogLevel aLogLevel, const char *aTag, const char *aFormat, ...);
+void tinyPlatLog(tinyLogLevel aLogLevel, const char *region, const char *aFormat, ...);
+
+/**
+ * Handles OpenThread log level changes.
+ *
+ * This platform function is called whenever the OpenThread log level changes.
+ * This platform function is optional since an empty weak implementation has been provided.
+ *
+ * @note Only applicable when `OPENTHREAD_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE=1`.
+ *
+ * @param[in]  aLogLevel  The new OpenThread log level.
+ */
+void tinyPlatLogHandleLevelChanged(tinyLogLevel aLogLevel);
 
 /**
  * @}
@@ -89,4 +107,4 @@ void tinyPlatLog(tinyLogLevel aLogLevel, const char *aTag, const char *aFormat, 
 } // extern "C"
 #endif
 
-#endif // TINYPLATFORM_PLATFORM_LOGGING_H_
+#endif // OPENTHREAD_PLATFORM_LOGGING_H_

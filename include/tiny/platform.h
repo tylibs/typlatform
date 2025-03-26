@@ -6,8 +6,8 @@
  *   This file defines the platform-specific functions needed by TinyPlatform's example applications.
  */
 
-#ifndef TINYPLATFORM_PLATFORM_H_
-#define TINYPLATFORM_PLATFORM_H_
+#ifndef TINY_PLATFORM_H_
+#define TINY_PLATFORM_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -34,4 +34,4 @@ void tiPlatformDeinit(void);
 } // end of extern "C"
 #endif
 
-#endif // TINYPLATFORM_PLATFORM_H_
+#endif // TINY_PLATFORM_H_

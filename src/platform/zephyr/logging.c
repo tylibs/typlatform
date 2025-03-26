@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 #include "platform-zephyr.h"
-#include "tinyplatform/logging.h"
+#include "tiny/logging.h"
 
 #define LOG_MODULE_NAME tinyplatform
 #define LOG_LEVEL LOG_LEVEL_DBG

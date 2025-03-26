@@ -7,8 +7,8 @@
  *  This file defines the errors
  */
 
-#ifndef TINYPLATFORM_ERROR_H_
-#define TINYPLATFORM_ERROR_H_
+#ifndef TINY_ERROR_H_
+#define TINY_ERROR_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -40,6 +40,16 @@ typedef enum tinyError
     TINY_ERROR_NO_BUFS = 3,
 
     /**
+     * Invalid Args
+     */
+    TINY_ERROR_INVALID_ARGS = 4,
+
+    /**
+     * Invalid Args
+     */
+    TINY_ERROR_PARSE = 5,
+
+    /**
      * The number of defined errors.
      */
     TINY_NUM_ERRORS,
@@ -54,4 +64,4 @@ typedef enum tinyError
 } // extern "C"
 #endif
 
-#endif // TINYPLATFORM_ERROR_H_
+#endif // TINY_ERROR_H_
