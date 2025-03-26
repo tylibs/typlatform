@@ -5,8 +5,8 @@
 
 #include "tinyplatform-config.h"
 #include <stdint.h>
-#include "tiny/error.h"
-#include "tiny/toolchain.h"
+#include <tiny/error.h>
+#include <tiny/platform/toolchain.h>
 
 /**
  * This function initializes the scheduler service.
