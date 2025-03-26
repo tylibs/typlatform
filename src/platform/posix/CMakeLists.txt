@@ -6,6 +6,5 @@ tiny_sources(
 
 tiny_include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
-tiny_compile_definitions(
-  -DTINYPLATFORM_CONFIG_LOG_LEVEL=${CONFIG_TINYPLATFORM_LOG_LEVEL}
-  -DTINYPLATFORM_PLATFORM_CONFIG_FILE="tinyplatform-posix-config.h")
+tiny_compile_definitions(# -DTINY_CONFIG_LOG_LEVEL=${CONFIG_TINY_LOG_LEVEL}
+                         -DTINY_PLATFORM_CONFIG_FILE="tiny-posix-config.h")

@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <zephyr/kernel.h>
 
-#include "tinyplatform-zephyr-config.h"
 #include <tiny/platform/logging.h>
 
 #define LOG_MODULE_NAME net_openthread

@@ -5,6 +5,5 @@ tiny_sources(${CMAKE_CURRENT_SOURCE_DIR}/platform.c
 
 tiny_include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
-tiny_compile_definitions(
-  -DTINYPLATFORM_CONFIG_LOG_LEVEL=${CONFIG_TINYPLATFORM_LOG_LEVEL}
-  -DTINYPLATFORM_PLATFORM_CONFIG_FILE="tinyplatform-zephyr-config.h")
+tiny_compile_definitions(-DTINY_CONFIG_LOG_LEVEL=${CONFIG_TINY_LOG_LEVEL}
+                         -DTINY_PLATFORM_CONFIG_FILE="tiny-zephyr-config.h")

@@ -25,7 +25,7 @@ extern "C" void app_main()
 
     while (true)
     {
-        tinyLogCritPlat("%s", "Hello, World!");
+        tinyLogInfoPlat("%s", "Hello, World!");
         // next event in 1 second
         vTaskDelay(5000 / portTICK_PERIOD_MS);
     }

@@ -20,7 +20,7 @@ extern "C" int main(void)
     // Initialize the settings subsystem
     while (true)
     {
-        tinyLogCritPlat("%s", "Hello, World!");
+        tinyLogInfoPlat("%s", "Hello, World!");
         // next event in 1 second
         sleep(1);
     }
