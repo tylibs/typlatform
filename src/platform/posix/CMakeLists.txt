@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.20)
 
-tiny_sources(${CMAKE_CURRENT_SOURCE_DIR}/platform.c
-             ${CMAKE_CURRENT_SOURCE_DIR}/logging.c)
+tiny_sources(
+  ${CMAKE_CURRENT_SOURCE_DIR}/platform.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/exit_code.c ${CMAKE_CURRENT_SOURCE_DIR}/logging.c)
 
 tiny_include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 

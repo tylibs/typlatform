@@ -50,6 +50,11 @@ typedef enum tinyError
     TINY_ERROR_PARSE = 5,
 
     /**
+     * Invalid Args
+     */
+    TINY_ERROR_FAILED = 6,
+
+    /**
      * The number of defined errors.
      */
     TINY_NUM_ERRORS,

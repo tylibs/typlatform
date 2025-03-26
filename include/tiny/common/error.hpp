@@ -29,6 +29,7 @@ constexpr Error kErrorNotFound                = TINY_ERROR_NOT_FOUND;
 constexpr Error kErrorNoBufs                  = TINY_ERROR_NO_BUFS;
 constexpr Error kErrorInvalidArgs             = TINY_ERROR_INVALID_ARGS;
 constexpr Error kErrorParse                   = TINY_ERROR_PARSE;
+constexpr Error kErrorFailed                  = TINY_ERROR_FAILED;
 constexpr Error kErrorGeneric                 = TINY_ERROR_GENERIC;
 
 constexpr uint8_t kNumErrors = TINY_NUM_ERRORS;
