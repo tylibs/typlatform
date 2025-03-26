@@ -7,6 +7,6 @@
 #include "tinyplatform-esp-config.h"
 #include <stdint.h>
 #include "tiny/error.h"
-#include "tiny/toolchain.h"
+#include "tiny/platform/toolchain.h"
 
 #endif // TINYPLATFORM_PLATFORM_ESP_H_

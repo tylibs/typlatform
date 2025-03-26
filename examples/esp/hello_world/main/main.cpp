@@ -10,39 +10,24 @@
 #include <esp_log.h>
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
+#include <tiny/instance.h>
 #include <tiny/logging.h>
-#include <tiny/toolchain.h>
+#include <tiny/platform/toolchain.h>
 
 const char *TAG = "main";
 
 /*****************************************************************************/
 
-// // just as a hint, but better not to pack, because this object only lives once
-// TINY_TOOL_PACKED_BEGIN
-// struct AppPersistentSettings : TsSetting
-// {
-//     int a;
-//     int b;
-// } TINY_TOOL_PACKED_END;
-
-// // keep the settings in global scope but not accessible (in C this would be static)
-// // the Settings will be injected in each module to support testing setups
-// namespace {
-// AppPersistentSettings mAppPersistentSettings;
-// }
-
 extern "C" void app_main()
 {
-    tinyPlatLog(TINY_LOG_LEVEL_WARN, "app", "App started");
-    // mAppPersistentSettings.magic = 0x1234;
-    // mAppPersistentSettings.len   = sizeof(mAppPersistentSettings);
-    // mAppPersistentSettings.a     = 1;
-
-    // tsLoad(&mAppPersistentSettings);
+    tinyInstance *instance;
+    instance = tinyInstanceInitSingle();
 
     while (true)
     {
+        tinyLogCritPlat("%s", "Hello, World!");
         // next event in 1 second
         vTaskDelay(5000 / portTICK_PERIOD_MS);
     }
+    tinyInstanceFinalize(instance);
 }
