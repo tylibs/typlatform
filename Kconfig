@@ -1,9 +1,5 @@
-config TINYPLATFORM
-	bool "TinyPlatform Library"
-	help
-		This option enables the TinyPlatform Library
 
-choice TINYPLATFORM_PLATFORM
+choice TINY_PLATFORM
 	prompt "BUILD System"
 	default ESP_PLATFORM if IDF_CMAKE
 	default ZEPHYR_PLATFORM if ZEPHYR_CMSIS_MODULE
@@ -19,17 +15,48 @@ config ESP_PLATFORM
 		ESP32 platform.
 endchoice
 
-menu "TinyPlatform configuration"
+menu "Tiny configuration"
 
-	config TINYPLATFORM_LOG
+	config TINY_LOG
 		bool "Enable logging"
 		default "y"
 		help
 			Selects whether tinyplatform logs messages.
 
-	config TINYPLATFORM_ASSERTS
+	config TINY_ASSERTS
 		bool "Enable asserts"
 		default "y"
 		help
 			Selects whether tinyplatform performs runtime assert checks.
+choice TINY_LOG_LEVEL_CHOICE
+	prompt "Tiny stack log level"
+	depends on TINY_DEBUG
+	help
+	  This option selects log level for Tiny stack.
+
+config TINY_LOG_LEVEL_CRIT
+	bool "Critical"
+config TINY_LOG_LEVEL_WARN
+	bool "Warning"
+config TINY_LOG_LEVEL_NOTE
+	bool "Notice"
+config TINY_LOG_LEVEL_INFO
+	bool "Informational"
+config TINY_LOG_LEVEL_DEBG
+	bool "Debug"
+endchoice # TINY_LOG_LEVEL_CHOICE
+
+config TINY_LOG_LEVEL
+	int
+	default 1 if TINY_LOG_LEVEL_CRIT
+	default 2 if TINY_LOG_LEVEL_WARN
+	default 3 if TINY_LOG_LEVEL_NOTE
+	default 4 if TINY_LOG_LEVEL_INFO
+	default 5 if TINY_LOG_LEVEL_DEBG
+	default 4
+	help
+	  Log level for Tiny stack.
+
+
 endmenu
+

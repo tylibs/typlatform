@@ -8,3 +8,5 @@ tiny_library_named(tiny)
 tiny_include_directories(${PROJECT_DIR}/include)
 add_subdirectory(${PROJECT_DIR}/src)
 tiny_library_link_libraries(zephyr_interface)
+
+zephyr_link_libraries(tiny)
