@@ -6,8 +6,8 @@ cmake_minimum_required(VERSION 3.20)
 # https://cmake.org/cmake/help/latest/manual/cmake-buildsystem.7.html#interface-libraries
 add_library(tiny_interface INTERFACE)
 tiny_library_named(tiny)
-tiny_include_directories(${TINYPLATFORM_DIR}/include)
-add_subdirectory(${TINYPLATFORM_DIR}/src)
+tiny_include_directories(${PROJECT_DIR}/include)
+add_subdirectory(${PROJECT_DIR}/src)
 
 add_executable(app ${CMAKE_CURRENT_SOURCE_DIR}/platform/empty_file.c)
 target_link_libraries(app PUBLIC tiny)
