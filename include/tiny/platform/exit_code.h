@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright 2025 Clever Design (Switzerland) GmbH
+// SPDX-License-Identifier: Apache-2.0
+
 #ifndef PLATFORM_EXIT_CODE_H_
 #define PLATFORM_EXIT_CODE_H_
 

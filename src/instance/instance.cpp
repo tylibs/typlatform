@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright 2025 Clever Design (Switzerland) GmbH
+// SPDX-License-Identifier: Apache-2.0
+
 #include "tiny/instance.h"
 #include "instance.hpp"
 #include "tiny/common/code_utils.hpp"

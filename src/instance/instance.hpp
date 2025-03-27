@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright 2025 Clever Design (Switzerland) GmbH
+// SPDX-License-Identifier: Apache-2.0
+
 #ifndef INSTANCE_H_
 #define INSTANCE_H_
 

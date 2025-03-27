@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: Copyright 2025 Clever Design (Switzerland) GmbH
+// SPDX-License-Identifier: Apache-2.0
+
 #ifndef BINARY_SEARCH_HPP_
 #define BINARY_SEARCH_HPP_
 
