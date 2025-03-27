@@ -3,17 +3,30 @@
 
 #include "tiny/instance.h"
 #include "instance.hpp"
+#include "tiny/common/as_core_type.hpp"
 #include "tiny/common/code_utils.hpp"
 #include "tiny/common/new.hpp"
 
 /********************************************
  * C API
  *******************************************/
-
 tinyInstance *tinyInstanceInitSingle(void)
 {
     return &tiny::Instance::InitSingle();
 }
+tinyInstance *tinyInstanceFinalize(void)
+{
+    return &tiny::Instance::InitSingle();
+}
+void tinyInstanceFinalize(tinyInstance *aInstance)
+{
+    tiny::AsCoreType(aInstance).Finalize();
+}
+
+// void tinyInstanceReset(tinyInstance *aInstance)
+// {
+//     tiny::AsCoreType(aInstance).Reset();
+// }
 
 /********************************************
  * C++ Implementation

@@ -5,6 +5,7 @@
 #define INSTANCE_H_
 
 #include <tiny/log.hpp>
+#include <tiny/common/as_core_type.hpp>
 #include <tiny/common/non_copyable.hpp>
 
 typedef struct tinyInstance
@@ -74,6 +75,19 @@ public:
      * Should be called when OpenThread instance is no longer in use.
      */
     void Finalize(void);
+    /**
+     * Returns a reference to a given `Type` object belonging to the OpenThread instance.
+     *
+     * For example, `Get<MeshForwarder>()` returns a reference to the `MeshForwarder` object of the instance.
+     *
+     * Note that any `Type` for which the `Get<Type>` is defined MUST be uniquely accessible from the OpenThread
+     * `Instance` through the member variable property hierarchy.
+     *
+     * Specializations of the `Get<Type>()` method are defined in this file after the `Instance` class definition.
+     *
+     * @returns A reference to the `Type` object of the instance.
+     */
+    template <typename Type> inline Type &Get(void);
 
 private:
     Instance(void);
@@ -83,6 +97,13 @@ private:
 #endif
     bool mIsInitialized;
 };
+
+DefineCoreType(tinyInstance, Instance);
+
+template <> inline Instance &Instance::Get(void)
+{
+    return *this;
+}
 } // namespace tiny
 
 #endif // INSTANCE_H_
