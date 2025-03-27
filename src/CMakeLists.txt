@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.20)
 set(COMMON_INCLUDES ${PROJECT_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR})
 
-set(COMMON_SOURCES instance/instance.cpp common/string.cpp logging/logging.cpp
-                   logging/log.cpp)
+set(COMMON_SOURCES instance/instance.cpp common/string.cpp common/error.cpp
+                   logging/logging.cpp logging/log.cpp)
 
 # test if the system is Linux
 tiny_include_directories(${COMMON_INCLUDES})
