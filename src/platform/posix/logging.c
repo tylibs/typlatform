@@ -8,6 +8,7 @@
 
 #include "platform-posix.h"
 #include "tiny/logging.h"
+#include "tiny/platform/toolchain.h"
 
 void tinyPlatLog(tinyLogLevel aLogLevel, const char *aTag, const char *aFormat, ...)
 {
@@ -46,8 +47,8 @@ void tinyPlatLog(tinyLogLevel aLogLevel, const char *aTag, const char *aFormat, 
 #endif
     va_end(args);
 #else
-    ARG_UNUSED(aLogLevel);
-    ARG_UNUSED(aTag);
-    ARG_UNUSED(aFormat);
+    TINY_UNUSED_VARIABLE(aLogLevel);
+    TINY_UNUSED_VARIABLE(aTag);
+    TINY_UNUSED_VARIABLE(aFormat);
 #endif
 }
