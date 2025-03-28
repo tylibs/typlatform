@@ -7,8 +7,8 @@
  *   This file includes platform abstractions for miscellaneous behaviors.
  */
 
-#ifndef TINY_PLATFORM_MISC_H_
-#define TINY_PLATFORM_MISC_H_
+#ifndef TY_PLATFORM_MISC_H_
+#define TY_PLATFORM_MISC_H_
 
 #include <stdint.h>
 
@@ -32,14 +32,14 @@ extern "C" {
  *
  * @param[in] aInstance  The OpenThread instance structure.
  */
-void tinyPlatReset(tinyInstance *aInstance);
+void tyPlatReset(tinyInstance *aInstance);
 
 /**
  * Sleep for a given number of milliseconds.
  *
  * @param[in] aSleepMs  The number of milliseconds to sleep.
  */
-void tinyPlatThreadSleepMs(uint32_t aSleepMs);
+void tyPlatThreadSleepMs(uint32_t aSleepMs);
 
 /**
  * @}
@@ -49,4 +49,4 @@ void tinyPlatThreadSleepMs(uint32_t aSleepMs);
 } // extern "C"
 #endif
 
-#endif // TINY_PLATFORM_MISC_H_
+#endif // TY_PLATFORM_MISC_H_

@@ -7,8 +7,8 @@
  * Include platform specific header files
  *
  */
-#ifdef TINY_PLATFORM_CONFIG_FILE
-#include TINY_PLATFORM_CONFIG_FILE
+#ifdef TY_PLATFORM_CONFIG_FILE
+#include TY_PLATFORM_CONFIG_FILE
 #endif
 
 #endif // TINYPLATFORM_CORE_CONFIG_H_

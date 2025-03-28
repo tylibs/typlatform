@@ -11,7 +11,7 @@
 
 #include "zephyr/kernel.h"
 
-void tinyPlatThreadSleepMs(uint32_t aSleepMs)
+void tyPlatThreadSleepMs(uint32_t aSleepMs)
 {
     k_msleep(aSleepMs);
 }

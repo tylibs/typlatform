@@ -18,13 +18,13 @@
 
 using namespace tiny;
 
-tinyLogLevel tinyLoggingGetLevel(void)
+tyLogLevel tyLoggingGetLevel(void)
 {
-    return static_cast<tinyLogLevel>(Instance::GetLogLevel());
+    return static_cast<tyLogLevel>(Instance::GetLogLevel());
 }
 
-#if TINY_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE
-tinyError tinyLoggingSetLevel(tinyLogLevel aLogLevel)
+#if TY_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE
+tinyError tyLoggingSetLevel(tyLogLevel aLogLevel)
 {
     Error error = kErrorNone;
 
@@ -38,167 +38,167 @@ exit:
 
 static const char kPlatformModuleName[] = "Platform";
 
-void tinyLogCritPlat(const char *aFormat, ...)
+void tyLogCritPlat(const char *aFormat, ...)
 {
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_CRIT) && TINY_CONFIG_LOG_PLATFORM
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_CRIT) && TY_CONFIG_LOG_PLATFORM
     va_list args;
 
     va_start(args, aFormat);
     Logger::LogVarArgs(kPlatformModuleName, kLogLevelCrit, aFormat, args);
     va_end(args);
 #else
-    TINY_UNUSED_VARIABLE(aFormat);
-    TINY_UNUSED_VARIABLE(kPlatformModuleName);
+    TY_UNUSED_VARIABLE(aFormat);
+    TY_UNUSED_VARIABLE(kPlatformModuleName);
 #endif
 }
 
-void tinyLogWarnPlat(const char *aFormat, ...)
+void tyLogWarnPlat(const char *aFormat, ...)
 {
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_WARN) && TINY_CONFIG_LOG_PLATFORM
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_WARN) && TY_CONFIG_LOG_PLATFORM
     va_list args;
 
     va_start(args, aFormat);
     Logger::LogVarArgs(kPlatformModuleName, kLogLevelWarn, aFormat, args);
     va_end(args);
 #else
-    TINY_UNUSED_VARIABLE(aFormat);
+    TY_UNUSED_VARIABLE(aFormat);
 #endif
 }
 
-void tinyLogNotePlat(const char *aFormat, ...)
+void tyLogNotePlat(const char *aFormat, ...)
 {
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_NOTE) && TINY_CONFIG_LOG_PLATFORM
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_NOTE) && TY_CONFIG_LOG_PLATFORM
     va_list args;
 
     va_start(args, aFormat);
     Logger::LogVarArgs(kPlatformModuleName, kLogLevelNote, aFormat, args);
     va_end(args);
 #else
-    TINY_UNUSED_VARIABLE(aFormat);
+    TY_UNUSED_VARIABLE(aFormat);
 #endif
 }
 
-void tinyLogInfoPlat(const char *aFormat, ...)
+void tyLogInfoPlat(const char *aFormat, ...)
 {
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_INFO) && TINY_CONFIG_LOG_PLATFORM
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_INFO) && TY_CONFIG_LOG_PLATFORM
     va_list args;
 
     va_start(args, aFormat);
     Logger::LogVarArgs(kPlatformModuleName, kLogLevelInfo, aFormat, args);
     va_end(args);
 #else
-    TINY_UNUSED_VARIABLE(aFormat);
+    TY_UNUSED_VARIABLE(aFormat);
 #endif
 }
 
-void tinyLogDebgPlat(const char *aFormat, ...)
+void tyLogDebgPlat(const char *aFormat, ...)
 {
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_DEBG) && TINY_CONFIG_LOG_PLATFORM
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_DEBG) && TY_CONFIG_LOG_PLATFORM
     va_list args;
 
     va_start(args, aFormat);
     Logger::LogVarArgs(kPlatformModuleName, kLogLevelDebg, aFormat, args);
     va_end(args);
 #else
-    TINY_UNUSED_VARIABLE(aFormat);
+    TY_UNUSED_VARIABLE(aFormat);
 #endif
 }
 
 void tinyDumpCritPlat(const char *aText, const void *aData, uint16_t aDataLength)
 {
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_CRIT) && TINY_CONFIG_LOG_PLATFORM && TINY_CONFIG_LOG_PKT_DUMP
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_CRIT) && TY_CONFIG_LOG_PLATFORM && TY_CONFIG_LOG_PKT_DUMP
     Logger::DumpInModule(kPlatformModuleName, kLogLevelCrit, aText, aData, aDataLength);
 #else
-    TINY_UNUSED_VARIABLE(aText);
-    TINY_UNUSED_VARIABLE(aData);
-    TINY_UNUSED_VARIABLE(aDataLength);
+    TY_UNUSED_VARIABLE(aText);
+    TY_UNUSED_VARIABLE(aData);
+    TY_UNUSED_VARIABLE(aDataLength);
 #endif
 }
 
 void tinyDumpWarnPlat(const char *aText, const void *aData, uint16_t aDataLength)
 {
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_WARN) && TINY_CONFIG_LOG_PLATFORM && TINY_CONFIG_LOG_PKT_DUMP
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_WARN) && TY_CONFIG_LOG_PLATFORM && TY_CONFIG_LOG_PKT_DUMP
     Logger::DumpInModule(kPlatformModuleName, kLogLevelWarn, aText, aData, aDataLength);
 #else
-    TINY_UNUSED_VARIABLE(aText);
-    TINY_UNUSED_VARIABLE(aData);
-    TINY_UNUSED_VARIABLE(aDataLength);
+    TY_UNUSED_VARIABLE(aText);
+    TY_UNUSED_VARIABLE(aData);
+    TY_UNUSED_VARIABLE(aDataLength);
 #endif
 }
 
 void tinyDumpNotePlat(const char *aText, const void *aData, uint16_t aDataLength)
 {
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_NOTE) && TINY_CONFIG_LOG_PLATFORM && TINY_CONFIG_LOG_PKT_DUMP
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_NOTE) && TY_CONFIG_LOG_PLATFORM && TY_CONFIG_LOG_PKT_DUMP
     Logger::DumpInModule(kPlatformModuleName, kLogLevelNote, aText, aData, aDataLength);
 #else
-    TINY_UNUSED_VARIABLE(aText);
-    TINY_UNUSED_VARIABLE(aData);
-    TINY_UNUSED_VARIABLE(aDataLength);
+    TY_UNUSED_VARIABLE(aText);
+    TY_UNUSED_VARIABLE(aData);
+    TY_UNUSED_VARIABLE(aDataLength);
 #endif
 }
 
 void tinyDumpInfoPlat(const char *aText, const void *aData, uint16_t aDataLength)
 {
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_INFO) && TINY_CONFIG_LOG_PLATFORM && TINY_CONFIG_LOG_PKT_DUMP
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_INFO) && TY_CONFIG_LOG_PLATFORM && TY_CONFIG_LOG_PKT_DUMP
     Logger::DumpInModule(kPlatformModuleName, kLogLevelInfo, aText, aData, aDataLength);
 #else
-    TINY_UNUSED_VARIABLE(aText);
-    TINY_UNUSED_VARIABLE(aData);
-    TINY_UNUSED_VARIABLE(aDataLength);
+    TY_UNUSED_VARIABLE(aText);
+    TY_UNUSED_VARIABLE(aData);
+    TY_UNUSED_VARIABLE(aDataLength);
 #endif
 }
 
 void tinyDumpDebgPlat(const char *aText, const void *aData, uint16_t aDataLength)
 {
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_DEBG) && TINY_CONFIG_LOG_PLATFORM && TINY_CONFIG_LOG_PKT_DUMP
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_DEBG) && TY_CONFIG_LOG_PLATFORM && TY_CONFIG_LOG_PKT_DUMP
     Logger::DumpInModule(kPlatformModuleName, kLogLevelDebg, aText, aData, aDataLength);
 #else
-    TINY_UNUSED_VARIABLE(aText);
-    TINY_UNUSED_VARIABLE(aData);
-    TINY_UNUSED_VARIABLE(aDataLength);
+    TY_UNUSED_VARIABLE(aText);
+    TY_UNUSED_VARIABLE(aData);
+    TY_UNUSED_VARIABLE(aDataLength);
 #endif
 }
 
-void tinyLogPlat(tinyLogLevel aLogLevel, const char *aPlatModuleName, const char *aFormat, ...)
+void tyLogPlat(tyLogLevel aLogLevel, const char *aPlatModuleName, const char *aFormat, ...)
 {
-#if TINY_CONFIG_LOG_PLATFORM
+#if TY_CONFIG_LOG_PLATFORM
     va_list args;
 
     va_start(args, aFormat);
-    tinyLogPlatArgs(aLogLevel, aPlatModuleName, aFormat, args);
+    tyLogPlatArgs(aLogLevel, aPlatModuleName, aFormat, args);
     va_end(args);
 #else
-    TINY_UNUSED_VARIABLE(aLogLevel);
-    TINY_UNUSED_VARIABLE(aPlatModuleName);
-    TINY_UNUSED_VARIABLE(aFormat);
+    TY_UNUSED_VARIABLE(aLogLevel);
+    TY_UNUSED_VARIABLE(aPlatModuleName);
+    TY_UNUSED_VARIABLE(aFormat);
 #endif
 }
 
-void tinyLogPlatArgs(tinyLogLevel aLogLevel, const char *aPlatModuleName, const char *aFormat, va_list aArgs)
+void tyLogPlatArgs(tyLogLevel aLogLevel, const char *aPlatModuleName, const char *aFormat, va_list aArgs)
 {
-#if TINY_SHOULD_LOG && TINY_CONFIG_LOG_PLATFORM
+#if TY_SHOULD_LOG && TY_CONFIG_LOG_PLATFORM
     tiny::String<kMaxLogModuleNameLength> moduleName;
 
-    TINY_ASSERT(aLogLevel >= kLogLevelNone && aLogLevel <= kLogLevelDebg);
+    TY_ASSERT(aLogLevel >= kLogLevelNone && aLogLevel <= kLogLevelDebg);
 
     moduleName.Append("P-%s", aPlatModuleName);
     Logger::LogVarArgs(moduleName.AsCString(), static_cast<LogLevel>(aLogLevel), aFormat, aArgs);
 #else
-    TINY_UNUSED_VARIABLE(aLogLevel);
-    TINY_UNUSED_VARIABLE(aPlatModuleName);
-    TINY_UNUSED_VARIABLE(aFormat);
-    TINY_UNUSED_VARIABLE(aArgs);
+    TY_UNUSED_VARIABLE(aLogLevel);
+    TY_UNUSED_VARIABLE(aPlatModuleName);
+    TY_UNUSED_VARIABLE(aFormat);
+    TY_UNUSED_VARIABLE(aArgs);
 #endif
 }
 
-void tinyLogCli(tinyLogLevel aLogLevel, const char *aFormat, ...)
+void tyLogCli(tyLogLevel aLogLevel, const char *aFormat, ...)
 {
-#if TINY_SHOULD_LOG && TINY_CONFIG_LOG_CLI
+#if TY_SHOULD_LOG && TY_CONFIG_LOG_CLI
     static const char kCliModuleName[] = "Cli";
 
     va_list args;
 
-    TINY_ASSERT(aLogLevel >= kLogLevelNone && aLogLevel <= kLogLevelDebg);
+    TY_ASSERT(aLogLevel >= kLogLevelNone && aLogLevel <= kLogLevelDebg);
     VerifyOrExit(aLogLevel >= kLogLevelNone && aLogLevel <= kLogLevelDebg);
 
     va_start(args, aFormat);
@@ -206,13 +206,13 @@ void tinyLogCli(tinyLogLevel aLogLevel, const char *aFormat, ...)
     va_end(args);
 exit:
 #else
-    TINY_UNUSED_VARIABLE(aLogLevel);
-    TINY_UNUSED_VARIABLE(aFormat);
+    TY_UNUSED_VARIABLE(aLogLevel);
+    TY_UNUSED_VARIABLE(aFormat);
 #endif
     return;
 }
 
-tinyError tinyLogGenerateNextHexDumpLine(tinyLogHexDumpInfo *aInfo)
+tinyError tyLogGenerateNextHexDumpLine(tyLogHexDumpInfo *aInfo)
 {
     AssertPointerIsNotNull(aInfo);
 

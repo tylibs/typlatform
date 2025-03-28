@@ -1,8 +1,8 @@
 // SPDX-FileCopyrightText: Copyright 2025 Clever Design (Switzerland) GmbH
 // SPDX-License-Identifier: Apache-2.0
 
-#ifndef TINY_COMMON_UTILS_CODE_UTILS_HPP_
-#define TINY_COMMON_UTILS_CODE_UTILS_HPP_
+#ifndef TY_COMMON_UTILS_CODE_UTILS_HPP_
+#define TY_COMMON_UTILS_CODE_UTILS_HPP_
 
 #include <tiny/error.h>
 #include <tiny/platform/toolchain.h>
@@ -16,7 +16,7 @@
  *
  * @returns Number of elements in the array.
  */
-#define TINY_ARRAY_LENGTH(aArray) (sizeof(aArray) / sizeof(aArray[0]))
+#define TY_ARRAY_LENGTH(aArray) (sizeof(aArray) / sizeof(aArray[0]))
 
 /**
  * Returns a pointer to end of a given array (pointing to the past-the-end element).
@@ -28,7 +28,7 @@
  *
  * @returns Pointer to the past-the-end element.
  */
-#define TINY_ARRAY_END(aArray) (&aArray[TINY_ARRAY_LENGTH(aArray)])
+#define TY_ARRAY_END(aArray) (&aArray[TY_ARRAY_LENGTH(aArray)])
 
 /**
  * Returns a pointer aligned by @p aAlignment.
@@ -38,25 +38,25 @@
  *
  * @returns The aligned pointer.
  */
-#define TINY_ALIGN(aPointer, aAlignment) \
+#define TY_ALIGN(aPointer, aAlignment) \
     ((void *)(((uintptr_t)(aPointer) + (aAlignment) - 1UL) & ~((uintptr_t)(aAlignment) - 1UL)))
 
 // Calculates the aligned variable size.
-#define TINY_ALIGNED_VAR_SIZE(size, align_type) (((size) + (sizeof(align_type) - 1)) / sizeof(align_type))
+#define TY_ALIGNED_VAR_SIZE(size, align_type) (((size) + (sizeof(align_type) - 1)) / sizeof(align_type))
 
 // Allocate the structure using "raw" storage.
-#define TINY_DEFINE_ALIGNED_VAR(name, size, align_type) \
+#define TY_DEFINE_ALIGNED_VAR(name, size, align_type) \
     align_type name[(((size) + (sizeof(align_type) - 1)) / sizeof(align_type))]
 
 /**
  * Returns the smaller of @p a and @p b.
  */
-#define TINY_MIN(a, b) ((b) < (a) ? (b) : (a))
+#define TY_MIN(a, b) ((b) < (a) ? (b) : (a))
 
 /**
  * Returns the greater of @p a and @p b.
  */
-#define TINY_MAX(a, b) ((a) < (b) ? (b) : (a))
+#define TY_MAX(a, b) ((a) < (b) ? (b) : (a))
 
 /**
  * Checks for the specified status, which is expected to commonly be successful, and branches to the local
@@ -80,14 +80,14 @@
  * @param[in]  aCondition  A Boolean expression to be evaluated.
  * @param[in]  aAction     An optional expression or block to execute when the assertion fails.
  */
-#define VerifyOrExit(...)                   \
-    do                                      \
-    {                                       \
-        if (!(TINY_FIRST_ARG(__VA_ARGS__))) \
-        {                                   \
-            TINY_SECOND_ARG(__VA_ARGS__);   \
-            goto exit;                      \
-        }                                   \
+#define VerifyOrExit(...)                 \
+    do                                    \
+    {                                     \
+        if (!(TY_FIRST_ARG(__VA_ARGS__))) \
+        {                                 \
+            TY_SECOND_ARG(__VA_ARGS__);   \
+            goto exit;                    \
+        }                                 \
     } while (false)
 
 /**
@@ -131,7 +131,7 @@
  */
 static inline void IgnoreError(tinyError aError)
 {
-    TINY_UNUSED_VARIABLE(aError);
+    TY_UNUSED_VARIABLE(aError);
 }
 
-#endif // TINY_COMMON_UTILS_CODE_UTILS_HPP_
+#endif // TY_COMMON_UTILS_CODE_UTILS_HPP_

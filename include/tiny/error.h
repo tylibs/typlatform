@@ -7,8 +7,8 @@
  *  This file defines the errors
  */
 
-#ifndef TINY_ERROR_H_
-#define TINY_ERROR_H_
+#ifndef TY_ERROR_H_
+#define TY_ERROR_H_
 
 #ifdef __cplusplus
 extern "C" {
@@ -22,51 +22,51 @@ typedef enum tinyError
     /**
      * No error.
      */
-    TINY_ERROR_NONE = 0,
+    TY_ERROR_NONE = 0,
 
     /**
      * Operational failed.
      */
-    TINY_ERROR_SUBSCRIBER_COUNT_EXCEEDED = 1,
+    TY_ERROR_SUBSCRIBER_COUNT_EXCEEDED = 1,
 
     /**
      * Not found.
      */
-    TINY_ERROR_NOT_FOUND = 2,
+    TY_ERROR_NOT_FOUND = 2,
 
     /**
      * No Buffers.
      */
-    TINY_ERROR_NO_BUFS = 3,
+    TY_ERROR_NO_BUFS = 3,
 
     /**
      * Invalid Args
      */
-    TINY_ERROR_INVALID_ARGS = 4,
+    TY_ERROR_INVALID_ARGS = 4,
 
     /**
      * Invalid Args
      */
-    TINY_ERROR_PARSE = 5,
+    TY_ERROR_PARSE = 5,
 
     /**
      * Invalid Args
      */
-    TINY_ERROR_FAILED = 6,
+    TY_ERROR_FAILED = 6,
 
     /**
      * The number of defined errors.
      */
-    TINY_NUM_ERRORS,
+    TY_NUM_ERRORS,
 
     /**
      * Generic error (should not use).
      */
-    TINY_ERROR_GENERIC = 255,
+    TY_ERROR_GENERIC = 255,
 } tinyError;
 
 #ifdef __cplusplus
 } // extern "C"
 #endif
 
-#endif // TINY_ERROR_H_
+#endif // TY_ERROR_H_

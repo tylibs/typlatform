@@ -50,17 +50,17 @@ public:
      * @returns The log level.
      */
     static LogLevel GetLogLevel(void)
-#if TINY_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE
+#if TY_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE
     {
         return sLogLevel;
     }
 #else
     {
-        return static_cast<LogLevel>(TINY_CONFIG_LOG_LEVEL);
+        return static_cast<LogLevel>(TY_CONFIG_LOG_LEVEL);
     }
 #endif
 
-#if TINY_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE
+#if TY_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE
     /**
      * Sets the log level.
      *
@@ -92,7 +92,7 @@ public:
 private:
     Instance(void);
     void AfterInit(void);
-#if TINY_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE
+#if TY_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE
     static LogLevel sLogLevel;
 #endif
     bool mIsInitialized;

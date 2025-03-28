@@ -19,11 +19,11 @@
 namespace tiny {
 
 /**
- * @def TINY_SHOULD_LOG
+ * @def TY_SHOULD_LOG
  *
  * This definition indicates whether or not logging is enabled.
  */
-#define TINY_SHOULD_LOG (TINY_CONFIG_LOG_OUTPUT != TINY_CONFIG_LOG_OUTPUT_NONE)
+#define TY_SHOULD_LOG (TY_CONFIG_LOG_OUTPUT != TY_CONFIG_LOG_OUTPUT_NONE)
 
 /**
  * Indicates whether the Tiny logging is enabled at a given log level.
@@ -32,26 +32,26 @@ namespace tiny {
  *
  * @returns TRUE if logging is enabled at @p aLevel, FALSE otherwise.
  */
-#define TINY_SHOULD_LOG_AT(aLevel) (TINY_SHOULD_LOG && (TINY_CONFIG_LOG_LEVEL >= (aLevel)))
+#define TY_SHOULD_LOG_AT(aLevel) (TY_SHOULD_LOG && (TY_CONFIG_LOG_LEVEL >= (aLevel)))
 
 /**
  * Represents the log level.
  */
 enum LogLevel : uint8_t
 {
-    kLogLevelNone = TINY_LOG_LEVEL_NONE, ///< None (disable logs)
-    kLogLevelCrit = TINY_LOG_LEVEL_CRIT, ///< Critical log level
-    kLogLevelWarn = TINY_LOG_LEVEL_WARN, ///< Warning log level
-    kLogLevelNote = TINY_LOG_LEVEL_NOTE, ///< Note log level
-    kLogLevelInfo = TINY_LOG_LEVEL_INFO, ///< Info log level
-    kLogLevelDebg = TINY_LOG_LEVEL_DEBG, ///< Debug log level
+    kLogLevelNone = TY_LOG_LEVEL_NONE, ///< None (disable logs)
+    kLogLevelCrit = TY_LOG_LEVEL_CRIT, ///< Critical log level
+    kLogLevelWarn = TY_LOG_LEVEL_WARN, ///< Warning log level
+    kLogLevelNote = TY_LOG_LEVEL_NOTE, ///< Note log level
+    kLogLevelInfo = TY_LOG_LEVEL_INFO, ///< Info log level
+    kLogLevelDebg = TY_LOG_LEVEL_DEBG, ///< Debug log level
 };
 
 constexpr uint8_t kMaxLogModuleNameLength = 14; ///< Maximum module name length
 
-constexpr uint16_t kMaxLogStringSize = TINY_CONFIG_LOG_MAX_SIZE; ///< Max size of log string
+constexpr uint16_t kMaxLogStringSize = TY_CONFIG_LOG_MAX_SIZE; ///< Max size of log string
 
-#if TINY_SHOULD_LOG
+#if TY_SHOULD_LOG
 /**
  * Registers log module name.
  *
@@ -74,7 +74,7 @@ constexpr uint16_t kMaxLogStringSize = TINY_CONFIG_LOG_MAX_SIZE; ///< Max size o
 #define RegisterLogModule(aName) static_assert(true, "Consume the required semi-colon at the end of macro")
 #endif
 
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_CRIT)
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_CRIT)
 /**
  * Emits a log message at critical log level.
  *
@@ -85,7 +85,7 @@ constexpr uint16_t kMaxLogStringSize = TINY_CONFIG_LOG_MAX_SIZE; ///< Max size o
 #define LogCrit(...)
 #endif
 
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_WARN)
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_WARN)
 /**
  * Emits a log message at warning log level.
  *
@@ -96,7 +96,7 @@ constexpr uint16_t kMaxLogStringSize = TINY_CONFIG_LOG_MAX_SIZE; ///< Max size o
 #define LogWarn(...)
 #endif
 
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_NOTE)
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_NOTE)
 /**
  * Emits a log message at note log level.
  *
@@ -107,7 +107,7 @@ constexpr uint16_t kMaxLogStringSize = TINY_CONFIG_LOG_MAX_SIZE; ///< Max size o
 #define LogNote(...)
 #endif
 
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_INFO)
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_INFO)
 /**
  * Emits a log message at info log level.
  *
@@ -118,7 +118,7 @@ constexpr uint16_t kMaxLogStringSize = TINY_CONFIG_LOG_MAX_SIZE; ///< Max size o
 #define LogInfo(...)
 #endif
 
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_DEBG)
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_DEBG)
 /**
  * Emits a log message at debug log level.
  *
@@ -129,7 +129,7 @@ constexpr uint16_t kMaxLogStringSize = TINY_CONFIG_LOG_MAX_SIZE; ///< Max size o
 #define LogDebg(...)
 #endif
 
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_WARN)
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_WARN)
 /**
  * Emits an error log message at warning log level if there is an error.
  *
@@ -144,7 +144,7 @@ constexpr uint16_t kMaxLogStringSize = TINY_CONFIG_LOG_MAX_SIZE; ///< Max size o
 #define LogWarnOnError(aError, aText)
 #endif
 
-#if TINY_SHOULD_LOG
+#if TY_SHOULD_LOG
 /**
  * Emits a log message at a given log level.
  *
@@ -156,7 +156,7 @@ constexpr uint16_t kMaxLogStringSize = TINY_CONFIG_LOG_MAX_SIZE; ///< Max size o
 #define LogAt(aLogLevel, ...)
 #endif
 
-#if TINY_SHOULD_LOG
+#if TY_SHOULD_LOG
 /**
  * Emits a log message independent of the configured log level.
  *
@@ -167,7 +167,7 @@ constexpr uint16_t kMaxLogStringSize = TINY_CONFIG_LOG_MAX_SIZE; ///< Max size o
 #define LogAlways(...)
 #endif
 
-#if TINY_SHOULD_LOG && TINY_CONFIG_REFERENCE_DEVICE_ENABLE
+#if TY_SHOULD_LOG && TY_CONFIG_REFERENCE_DEVICE_ENABLE
 /**
  * Emit a log message for the certification test.
  *
@@ -178,7 +178,7 @@ constexpr uint16_t kMaxLogStringSize = TINY_CONFIG_LOG_MAX_SIZE; ///< Max size o
 #define LogCert(...)
 #endif
 
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_CRIT) && TINY_CONFIG_LOG_PKT_DUMP
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_CRIT) && TY_CONFIG_LOG_PKT_DUMP
 /**
  * Generates a memory dump at log level critical.
  *
@@ -191,7 +191,7 @@ constexpr uint16_t kMaxLogStringSize = TINY_CONFIG_LOG_MAX_SIZE; ///< Max size o
 #define DumpCrit(aText, aData, aDataLength)
 #endif
 
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_WARN) && TINY_CONFIG_LOG_PKT_DUMP
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_WARN) && TY_CONFIG_LOG_PKT_DUMP
 /**
  * Generates a memory dump at log level warning.
  *
@@ -204,7 +204,7 @@ constexpr uint16_t kMaxLogStringSize = TINY_CONFIG_LOG_MAX_SIZE; ///< Max size o
 #define DumpWarn(aText, aData, aDataLength)
 #endif
 
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_NOTE) && TINY_CONFIG_LOG_PKT_DUMP
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_NOTE) && TY_CONFIG_LOG_PKT_DUMP
 /**
  * Generates a memory dump at log level note.
  *
@@ -217,7 +217,7 @@ constexpr uint16_t kMaxLogStringSize = TINY_CONFIG_LOG_MAX_SIZE; ///< Max size o
 #define DumpNote(aText, aData, aDataLength)
 #endif
 
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_INFO) && TINY_CONFIG_LOG_PKT_DUMP
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_INFO) && TY_CONFIG_LOG_PKT_DUMP
 /**
  * Generates a memory dump at log level info.
  *
@@ -230,7 +230,7 @@ constexpr uint16_t kMaxLogStringSize = TINY_CONFIG_LOG_MAX_SIZE; ///< Max size o
 #define DumpInfo(aText, aData, aDataLength)
 #endif
 
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_DEBG) && TINY_CONFIG_LOG_PKT_DUMP
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_DEBG) && TY_CONFIG_LOG_PKT_DUMP
 /**
  * Generates a memory dump at log level debug.
  *
@@ -243,7 +243,7 @@ constexpr uint16_t kMaxLogStringSize = TINY_CONFIG_LOG_MAX_SIZE; ///< Max size o
 #define DumpDebg(aText, aData, aDataLength)
 #endif
 
-#if TINY_SHOULD_LOG && TINY_CONFIG_LOG_PKT_DUMP
+#if TY_SHOULD_LOG && TY_CONFIG_LOG_PKT_DUMP
 /**
  * Generates a memory dump independent of the configured log level.
  *
@@ -254,7 +254,7 @@ constexpr uint16_t kMaxLogStringSize = TINY_CONFIG_LOG_MAX_SIZE; ///< Max size o
 #define DumpAlways(aText, aData, aDataLength) Logger::DumpInModule("", kLogLevelNone, aText, aData, aDataLength)
 #endif
 
-#if TINY_SHOULD_LOG && TINY_CONFIG_REFERENCE_DEVICE_ENABLE && TINY_CONFIG_LOG_PKT_DUMP
+#if TY_SHOULD_LOG && TY_CONFIG_REFERENCE_DEVICE_ENABLE && TY_CONFIG_LOG_PKT_DUMP
 /**
  * Generates a memory dump for certification test.
  *
@@ -269,7 +269,7 @@ constexpr uint16_t kMaxLogStringSize = TINY_CONFIG_LOG_MAX_SIZE; ///< Max size o
 
 //----------------------------------------------------------------------------------------------------------------------
 
-#if TINY_SHOULD_LOG
+#if TY_SHOULD_LOG
 
 class Logger
 {
@@ -280,19 +280,19 @@ class Logger
 
 public:
     static void LogInModule(const char *aModuleName, LogLevel aLogLevel, const char *aFormat, ...)
-        TINY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(3, 4);
+        TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(3, 4);
 
     template <LogLevel kLogLevel>
     static void LogAtLevel(const char *aModuleName, const char *aFormat, ...)
-        TINY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
+        TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
 
     static void LogVarArgs(const char *aModuleName, LogLevel aLogLevel, const char *aFormat, va_list aArgs);
 
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_WARN)
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_WARN)
     static void LogOnError(const char *aModuleName, Error aError, const char *aText);
 #endif
 
-#if TINY_CONFIG_LOG_PKT_DUMP
+#if TY_CONFIG_LOG_PKT_DUMP
     static constexpr uint8_t kStringLineLength = 80;
     static constexpr uint8_t kDumpBytesPerLine = 16;
 
@@ -320,7 +320,7 @@ extern template void Logger::LogAtLevel<kLogLevelNote>(const char *aModuleName, 
 extern template void Logger::LogAtLevel<kLogLevelInfo>(const char *aModuleName, const char *aFormat, ...);
 extern template void Logger::LogAtLevel<kLogLevelDebg>(const char *aModuleName, const char *aFormat, ...);
 
-#if TINY_CONFIG_LOG_PKT_DUMP
+#if TY_CONFIG_LOG_PKT_DUMP
 extern template void Logger::DumpAtLevel<kLogLevelNone>(const char *aModuleName,
                                                         const char *aText,
                                                         const void *aData,
@@ -345,10 +345,10 @@ extern template void Logger::DumpAtLevel<kLogLevelDebg>(const char *aModuleName,
                                                         const char *aText,
                                                         const void *aData,
                                                         uint16_t    aDataLength);
-#endif // TINY_CONFIG_LOG_PKT_DUMP
-#endif // TINY_SHOULD_LOG
+#endif // TY_CONFIG_LOG_PKT_DUMP
+#endif // TY_SHOULD_LOG
 
-typedef tinyLogHexDumpInfo HexDumpInfo; ///< Represents the hex dump info.
+typedef tyLogHexDumpInfo HexDumpInfo; ///< Represents the hex dump info.
 
 /**
  * Generates the next hex dump line.

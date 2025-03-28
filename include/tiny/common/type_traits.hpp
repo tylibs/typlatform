@@ -1,8 +1,8 @@
 // SPDX-FileCopyrightText: Copyright 2025 Clever Design (Switzerland) GmbH
 // SPDX-License-Identifier: Apache-2.0
 
-#ifndef TINY_TYPE_TRAITS_HPP_
-#define TINY_TYPE_TRAITS_HPP_
+#ifndef TY_TYPE_TRAITS_HPP_
+#define TY_TYPE_TRAITS_HPP_
 
 namespace tiny {
 namespace TypeTraits {
@@ -126,4 +126,4 @@ struct FirstArgTypeOf<RetType (*)(FirstArgType, Args...)>
 } // namespace TypeTraits
 } // namespace tiny
 
-#endif // TINY_TYPE_TRAITS_HPP_
+#endif // TY_TYPE_TRAITS_HPP_

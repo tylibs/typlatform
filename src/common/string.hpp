@@ -410,7 +410,7 @@ public:
      *
      * @returns The string writer.
      */
-    StringWriter &Append(const char *aFormat, ...) TINY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
+    StringWriter &Append(const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
 
     /**
      * Appends `printf()` style formatted data to the buffer.

@@ -6,6 +6,5 @@ tiny_library_sources(
 
 tiny_library_include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
-tiny_library_compile_definitions(
-  -DTINY_CONFIG_LOG_LEVEL=${CONFIG_TINY_LOG_LEVEL}
-  -DTINY_PLATFORM_CONFIG_FILE="tiny-esp-config.h")
+tiny_library_compile_definitions(-DTY_CONFIG_LOG_LEVEL=${CONFIG_TY_LOG_LEVEL}
+                                 -DTY_PLATFORM_CONFIG_FILE="tiny-esp-config.h")

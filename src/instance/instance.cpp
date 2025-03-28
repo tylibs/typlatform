@@ -33,7 +33,7 @@ void tinyInstanceFinalize(tinyInstance *aInstance)
  *******************************************/
 namespace tiny {
 // Define the raw storage used for Tiny instance (in single-instance case).
-TINY_DEFINE_ALIGNED_VAR(gInstanceRaw, sizeof(Instance), uint64_t);
+TY_DEFINE_ALIGNED_VAR(gInstanceRaw, sizeof(Instance), uint64_t);
 
 Instance::Instance(void) {}
 

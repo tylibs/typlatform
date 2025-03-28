@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: Copyright 2025 Clever Design (Switzerland) GmbH
 // SPDX-License-Identifier: Apache-2.0
-#ifndef TINY_PLATFORM_LOGGING_H_
-#define TINY_PLATFORM_LOGGING_H_
+#ifndef TY_PLATFORM_LOGGING_H_
+#define TY_PLATFORM_LOGGING_H_
 
 #include <stdarg.h>
 #include <stdint.h>
@@ -25,7 +25,7 @@ extern "C" {
  * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
  * #if/#else/#endif.
  */
-#define TINY_LOG_LEVEL_NONE 0
+#define TY_LOG_LEVEL_NONE 0
 
 /**
  * Log level Critical.
@@ -33,7 +33,7 @@ extern "C" {
  * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
  * #if/#else/#endif.
  */
-#define TINY_LOG_LEVEL_CRIT 1
+#define TY_LOG_LEVEL_CRIT 1
 
 /**
  * Log level Warning.
@@ -41,7 +41,7 @@ extern "C" {
  * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
  * #if/#else/#endif.
  */
-#define TINY_LOG_LEVEL_WARN 2
+#define TY_LOG_LEVEL_WARN 2
 
 /**
  * Log level Notice.
@@ -49,7 +49,7 @@ extern "C" {
  * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
  * #if/#else/#endif.
  */
-#define TINY_LOG_LEVEL_NOTE 3
+#define TY_LOG_LEVEL_NOTE 3
 
 /**
  * Log level Informational.
@@ -57,7 +57,7 @@ extern "C" {
  * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
  * #if/#else/#endif.
  */
-#define TINY_LOG_LEVEL_INFO 4
+#define TY_LOG_LEVEL_INFO 4
 
 /**
  * Log level Debug.
@@ -65,19 +65,19 @@ extern "C" {
  * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
  * #if/#else/#endif.
  */
-#define TINY_LOG_LEVEL_DEBG 5
+#define TY_LOG_LEVEL_DEBG 5
 
 /**
  * Represents the log level.
  */
-typedef int tinyLogLevel;
+typedef int tyLogLevel;
 
-#define TINY_LOG_REGION_CORE "core"
+#define TY_LOG_REGION_CORE "core"
 
 /**
  * Outputs logs.
  *
- * Note that the support for log region is removed. The OT core will always emit all logs with `TINY_LOG_REGION_CORE`
+ * Note that the support for log region is removed. The OT core will always emit all logs with `TY_LOG_REGION_CORE`
  * as @p aLogRegion.
  *
  * @param[in]  aLogLevel   The log level.
@@ -85,7 +85,7 @@ typedef int tinyLogLevel;
  * @param[in]  aFormat     A pointer to the format string.
  * @param[in]  ...         Arguments for the format specification.
  */
-void tinyPlatLog(tinyLogLevel aLogLevel, const char *region, const char *aFormat, ...);
+void tyPlatLog(tyLogLevel aLogLevel, const char *region, const char *aFormat, ...);
 
 /**
  * Handles OpenThread log level changes.
@@ -97,7 +97,7 @@ void tinyPlatLog(tinyLogLevel aLogLevel, const char *region, const char *aFormat
  *
  * @param[in]  aLogLevel  The new OpenThread log level.
  */
-void tinyPlatLogHandleLevelChanged(tinyLogLevel aLogLevel);
+void tyPlatLogHandleLevelChanged(tyLogLevel aLogLevel);
 
 /**
  * @}

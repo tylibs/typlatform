@@ -19,31 +19,31 @@ const char *tinyExitCodeToString(uint8_t aExitCode)
 
     switch (aExitCode)
     {
-    case TINY_EXIT_SUCCESS:
+    case TY_EXIT_SUCCESS:
         retval = "Success";
         break;
 
-    case TINY_EXIT_FAILURE:
+    case TY_EXIT_FAILURE:
         retval = "Failure";
         break;
 
-    case TINY_EXIT_INVALID_ARGUMENTS:
+    case TY_EXIT_INVALID_ARGUMENTS:
         retval = "InvalidArgument";
         break;
 
-    case TINY_EXIT_RADIO_SPINEL_INCOMPATIBLE:
+    case TY_EXIT_RADIO_SPINEL_INCOMPATIBLE:
         retval = "RadioSpinelIncompatible";
         break;
 
-    case TINY_EXIT_RADIO_SPINEL_RESET:
+    case TY_EXIT_RADIO_SPINEL_RESET:
         retval = "RadioSpinelReset";
         break;
 
-    case TINY_EXIT_RADIO_SPINEL_NO_RESPONSE:
+    case TY_EXIT_RADIO_SPINEL_NO_RESPONSE:
         retval = "RadioSpinelNoResponse";
         break;
 
-    case TINY_EXIT_ERROR_ERRNO:
+    case TY_EXIT_ERROR_ERRNO:
 #ifdef errno
         retval = strerror(errno);
 #else
@@ -51,11 +51,11 @@ const char *tinyExitCodeToString(uint8_t aExitCode)
 #endif
         break;
 
-    case TINY_EXIT_INVALID_STATE:
+    case TY_EXIT_INVALID_STATE:
         retval = "InvalidState";
         break;
 
-    case TINY_EXIT_RCP_RESET_REQUIRED:
+    case TY_EXIT_RCP_RESET_REQUIRED:
         retval = "RcpResetRequired";
         break;
 

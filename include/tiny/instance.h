@@ -7,8 +7,8 @@
  *  This file defines the OpenThread Instance API.
  */
 
-#ifndef TINY_INSTANCE_H_
-#define TINY_INSTANCE_H_
+#ifndef TY_INSTANCE_H_
+#define TY_INSTANCE_H_
 
 #include <stdlib.h>
 
@@ -26,7 +26,7 @@ extern "C" {
  *
  * @note This number versions both OpenThread platform and user APIs.
  */
-#define TINY_API_VERSION (001)
+#define TY_API_VERSION (001)
 
 /**
  * @addtogroup api-instance
@@ -237,7 +237,7 @@ void otRemoveStateChangeCallback(tinyInstance *aInstance, otStateChangedCallback
  * Triggers a platform reset.
  *
  * The reset process ensures that all the OpenThread state/info (stored in volatile memory) is erased. Note that the
- * `tinyPlatformReset` does not erase any persistent state/info saved in non-volatile memory.
+ * `tyPlatformReset` does not erase any persistent state/info saved in non-volatile memory.
  *
  * @param[in]  aInstance  A pointer to an OpenThread instance.
  */

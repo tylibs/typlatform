@@ -1,8 +1,8 @@
 // SPDX-FileCopyrightText: Copyright 2025 Clever Design (Switzerland) GmbH
 // SPDX-License-Identifier: Apache-2.0
 
-#ifndef TINY_NUM_UTILS_HPP_
-#define TINY_NUM_UTILS_HPP_
+#ifndef TY_NUM_UTILS_HPP_
+#define TY_NUM_UTILS_HPP_
 
 #include "tiny/common/numeric_limits.hpp"
 #include "tiny/common/type_traits.hpp"
@@ -245,4 +245,4 @@ template <typename UintType> uint8_t CountBitsInMask(UintType aMask)
 
 } // namespace tiny
 
-#endif // TINY_NUM_UTILS_HPP_
+#endif // TY_NUM_UTILS_HPP_

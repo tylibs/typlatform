@@ -14,7 +14,7 @@
 #include <stdint.h>
 #include <time.h>
 
-extern "C" void tinyPlatThreadSleepMs(uint32_t aSleepMs)
+extern "C" void tyPlatThreadSleepMs(uint32_t aSleepMs)
 {
     struct timespec ts;
     int             res;

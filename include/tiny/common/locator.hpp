@@ -19,7 +19,7 @@ namespace tiny {
 
 class Instance;
 
-#if !TINY_CONFIG_MULTIPLE_INSTANCE_ENABLE
+#if !TY_CONFIG_MULTIPLE_INSTANCE_ENABLE
 extern uint64_t gInstanceRaw[];
 #endif
 
@@ -82,7 +82,7 @@ public:
      *
      * @returns A reference to the parent otInstance.
      */
-#if TINY_CONFIG_MULTIPLE_INSTANCE_ENABLE
+#if TY_CONFIG_MULTIPLE_INSTANCE_ENABLE
     Instance &GetInstance(void) const { return *mInstance; }
 #else
     Instance &GetInstance(void) const { return *reinterpret_cast<Instance *>(&gInstanceRaw); }
@@ -95,17 +95,17 @@ protected:
      * @param[in]  aInstance  A reference to the Tiny Instance.
      */
     explicit InstanceLocator(Instance &aInstance)
-#if TINY_CONFIG_MULTIPLE_INSTANCE_ENABLE
+#if TY_CONFIG_MULTIPLE_INSTANCE_ENABLE
         : mInstance(&aInstance)
 #endif
     {
-        TINY_UNUSED_VARIABLE(aInstance);
+        TY_UNUSED_VARIABLE(aInstance);
     }
 
 private:
     InstanceLocator(void) = default;
 
-#if TINY_CONFIG_MULTIPLE_INSTANCE_ENABLE
+#if TY_CONFIG_MULTIPLE_INSTANCE_ENABLE
     Instance *mInstance;
 #endif
 };
@@ -140,10 +140,10 @@ protected:
      */
     void Init(Instance &aInstance)
     {
-#if TINY_CONFIG_MULTIPLE_INSTANCE_ENABLE
+#if TY_CONFIG_MULTIPLE_INSTANCE_ENABLE
         mInstance = &aInstance;
 #endif
-        TINY_UNUSED_VARIABLE(aInstance);
+        TY_UNUSED_VARIABLE(aInstance);
     }
 };
 

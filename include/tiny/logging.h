@@ -7,8 +7,8 @@
  *   This file includes Tiny logging related definitions.
  */
 
-#ifndef TINY_LOGGING_H_
-#define TINY_LOGGING_H_
+#ifndef TY_LOGGING_H_
+#define TY_LOGGING_H_
 
 #include <tiny/error.h>
 #include <tiny/platform/logging.h>
@@ -30,84 +30,84 @@ extern "C" {
 /**
  * Returns the current log level.
  *
- * If dynamic log level feature `TINY_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE` is enabled, this function returns the
+ * If dynamic log level feature `TY_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE` is enabled, this function returns the
  * currently set dynamic log level. Otherwise, this function returns the build-time configured log level.
  *
  * @returns The log level.
  */
-tinyLogLevel tinyLoggingGetLevel(void);
+tyLogLevel tyLoggingGetLevel(void);
 
 /**
  * Sets the log level.
  *
- * @note This function requires `TINY_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE=1`.
+ * @note This function requires `TY_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE=1`.
  *
  * @param[in]  aLogLevel               The log level.
  *
- * @retval TINY_ERROR_NONE            Successfully updated log level.
- * @retval TINY_ERROR_INVALID_ARGS    Log level value is invalid.
+ * @retval TY_ERROR_NONE            Successfully updated log level.
+ * @retval TY_ERROR_INVALID_ARGS    Log level value is invalid.
  */
-tinyError tinyLoggingSetLevel(tinyLogLevel aLogLevel);
+tinyError tyLoggingSetLevel(tyLogLevel aLogLevel);
 
 /**
  * Emits a log message at critical log level.
  *
- * Is intended for use by platform. If `TINY_CONFIG_LOG_PLATFORM` is not set or the current log
+ * Is intended for use by platform. If `TY_CONFIG_LOG_PLATFORM` is not set or the current log
  * level is below critical, this function does not emit any log message.
  *
  * @param[in]  aFormat  The format string.
  * @param[in]  ...      Arguments for the format specification.
  */
-void tinyLogCritPlat(const char *aFormat, ...) TINY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(1, 2);
+void tyLogCritPlat(const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(1, 2);
 
 /**
  * Emits a log message at warning log level.
  *
- * Is intended for use by platform. If `TINY_CONFIG_LOG_PLATFORM` is not set or the current log
+ * Is intended for use by platform. If `TY_CONFIG_LOG_PLATFORM` is not set or the current log
  * level is below warning, this function does not emit any log message.
  *
  * @param[in]  aFormat  The format string.
  * @param[in]  ...      Arguments for the format specification.
  */
-void tinyLogWarnPlat(const char *aFormat, ...) TINY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(1, 2);
+void tyLogWarnPlat(const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(1, 2);
 
 /**
  * Emits a log message at note log level.
  *
- * Is intended for use by platform. If `TINY_CONFIG_LOG_PLATFORM` is not set or the current log
+ * Is intended for use by platform. If `TY_CONFIG_LOG_PLATFORM` is not set or the current log
  * level is below note, this function does not emit any log message.
  *
  * @param[in]  aFormat  The format string.
  * @param[in]  ...      Arguments for the format specification.
  */
-void tinyLogNotePlat(const char *aFormat, ...) TINY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(1, 2);
+void tyLogNotePlat(const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(1, 2);
 
 /**
  * Emits a log message at info log level.
  *
- * Is intended for use by platform. If `TINY_CONFIG_LOG_PLATFORM` is not set or the current log
+ * Is intended for use by platform. If `TY_CONFIG_LOG_PLATFORM` is not set or the current log
  * level is below info, this function does not emit any log message.
  *
  * @param[in]  aFormat  The format string.
  * @param[in]  ...      Arguments for the format specification.
  */
-void tinyLogInfoPlat(const char *aFormat, ...) TINY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(1, 2);
+void tyLogInfoPlat(const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(1, 2);
 
 /**
  * Emits a log message at debug log level.
  *
- * Is intended for use by platform. If `TINY_CONFIG_LOG_PLATFORM` is not set or the current log
+ * Is intended for use by platform. If `TY_CONFIG_LOG_PLATFORM` is not set or the current log
  * level is below debug, this function does not emit any log message.
  *
  * @param[in]  aFormat  The format string.
  * @param[in]  ...      Arguments for the format specification.
  */
-void tinyLogDebgPlat(const char *aFormat, ...) TINY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(1, 2);
+void tyLogDebgPlat(const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(1, 2);
 
 /**
  * Generates a memory dump at critical log level.
  *
- * If `TINY_CONFIG_LOG_PLATFORM` or `TINY_CONFIG_LOG_PKT_DUMP` is not set or the current log level is below
+ * If `TY_CONFIG_LOG_PLATFORM` or `TY_CONFIG_LOG_PKT_DUMP` is not set or the current log level is below
  * critical this function does not emit any log message.
  *
  * @param[in]  aText         A string that is printed before the bytes.
@@ -119,7 +119,7 @@ void otDumpCritPlat(const char *aText, const void *aData, uint16_t aDataLength);
 /**
  * Generates a memory dump at warning log level.
  *
- * If `TINY_CONFIG_LOG_PLATFORM` or `TINY_CONFIG_LOG_PKT_DUMP` is not set or the current log level is below
+ * If `TY_CONFIG_LOG_PLATFORM` or `TY_CONFIG_LOG_PKT_DUMP` is not set or the current log level is below
  * warning this function does not emit any log message.
  *
  * @param[in]  aText         A string that is printed before the bytes.
@@ -131,7 +131,7 @@ void otDumpWarnPlat(const char *aText, const void *aData, uint16_t aDataLength);
 /**
  * Generates a memory dump at note log level.
  *
- * If `TINY_CONFIG_LOG_PLATFORM` or `TINY_CONFIG_LOG_PKT_DUMP` is not set or the current log level is below
+ * If `TY_CONFIG_LOG_PLATFORM` or `TY_CONFIG_LOG_PKT_DUMP` is not set or the current log level is below
  * note this function does not emit any log message.
  *
  * @param[in]  aText         A string that is printed before the bytes.
@@ -143,7 +143,7 @@ void otDumpNotePlat(const char *aText, const void *aData, uint16_t aDataLength);
 /**
  * Generates a memory dump at info log level.
  *
- * If `TINY_CONFIG_LOG_PLATFORM` or `TINY_CONFIG_LOG_PKT_DUMP` is not set or the current log level is below
+ * If `TY_CONFIG_LOG_PLATFORM` or `TY_CONFIG_LOG_PKT_DUMP` is not set or the current log level is below
  * info this function does not emit any log message.
  *
  * @param[in]  aText         A string that is printed before the bytes.
@@ -155,7 +155,7 @@ void otDumpInfoPlat(const char *aText, const void *aData, uint16_t aDataLength);
 /**
  * Generates a memory dump at debug log level.
  *
- * If `TINY_CONFIG_LOG_PLATFORM` or `TINY_CONFIG_LOG_PKT_DUMP` is not set or the current log level is below
+ * If `TY_CONFIG_LOG_PLATFORM` or `TY_CONFIG_LOG_PKT_DUMP` is not set or the current log level is below
  * debug this function does not emit any log message.
  *
  * @param[in]  aText         A string that is printed before the bytes.
@@ -167,7 +167,7 @@ void otDumpDebgPlat(const char *aText, const void *aData, uint16_t aDataLength);
 /**
  * Emits a log message at given log level using a platform module name.
  *
- * This is is intended for use by platform. If `TINY_CONFIG_LOG_PLATFORM` is not set or the current log
+ * This is is intended for use by platform. If `TY_CONFIG_LOG_PLATFORM` is not set or the current log
  * level is below @p aLogLevel , this function does not emit any log message.
  *
  * The @p aPlatModuleName name is used to determine the log module name in the emitted log message, following the
@@ -180,13 +180,13 @@ void otDumpDebgPlat(const char *aText, const void *aData, uint16_t aDataLength);
  * @param[in] aFormat           The format string.
  * @param[in] ...               Arguments for the format specification.
  */
-void tinyLogPlat(tinyLogLevel aLogLevel, const char *aPlatModuleName, const char *aFormat, ...)
-    TINY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(3, 4);
+void tyLogPlat(tyLogLevel aLogLevel, const char *aPlatModuleName, const char *aFormat, ...)
+    TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(3, 4);
 
 /**
  * Emits a log message at given log level using a platform module name.
  *
- * This is is intended for use by platform. If `TINY_CONFIG_LOG_PLATFORM` is not set or the current log
+ * This is is intended for use by platform. If `TY_CONFIG_LOG_PLATFORM` is not set or the current log
  * level is below @p aLogLevel , this function does not emit any log message.
  *
  * The @p aPlatModuleName name is used to determine the log module name in the emitted log message, following the
@@ -199,33 +199,33 @@ void tinyLogPlat(tinyLogLevel aLogLevel, const char *aPlatModuleName, const char
  * @param[in] aFormat           The format string.
  * @param[in] aArgs             Arguments for the format specification.
  */
-void tinyLogPlatArgs(tinyLogLevel aLogLevel, const char *aPlatModuleName, const char *aFormat, va_list aArgs);
+void tyLogPlatArgs(tyLogLevel aLogLevel, const char *aPlatModuleName, const char *aFormat, va_list aArgs);
 
 /**
  * Emits a log message at a given log level.
  *
- * Is intended for use by CLI only. If `TINY_CONFIG_LOG_CLI` is not set or the current log
+ * Is intended for use by CLI only. If `TY_CONFIG_LOG_CLI` is not set or the current log
  * level is below the given log level, this function does not emit any log message.
  *
  * @param[in]  aLogLevel The log level.
  * @param[in]  aFormat   The format string.
  * @param[in]  ...       Arguments for the format specification.
  */
-void tinyLogCli(tinyLogLevel aLogLevel, const char *aFormat, ...) TINY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
+void tyLogCli(tyLogLevel aLogLevel, const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
 
-#define TINY_LOG_HEX_DUMP_LINE_SIZE 73 ///< Hex dump line string size.
+#define TY_LOG_HEX_DUMP_LINE_SIZE 73 ///< Hex dump line string size.
 
 /**
  * Represents information used for generating hex dump output.
  */
 typedef struct
 {
-    const uint8_t *mDataBytes;                         ///< The data byes.
-    uint16_t       mDataLength;                        ///< The data length (number of bytes in @p mDataBytes)
-    const char    *mTitle;                             ///< Title string to add table header (MUST NOT be `NULL`).
-    char           mLine[TINY_LOG_HEX_DUMP_LINE_SIZE]; ///< Buffer to output one line of generated hex dump.
-    uint16_t       mIterator;                          ///< Iterator used by OT stack. MUST be initialized to zero.
-} tinyLogHexDumpInfo;
+    const uint8_t *mDataBytes;                       ///< The data byes.
+    uint16_t       mDataLength;                      ///< The data length (number of bytes in @p mDataBytes)
+    const char    *mTitle;                           ///< Title string to add table header (MUST NOT be `NULL`).
+    char           mLine[TY_LOG_HEX_DUMP_LINE_SIZE]; ///< Buffer to output one line of generated hex dump.
+    uint16_t       mIterator;                        ///< Iterator used by OT stack. MUST be initialized to zero.
+} tyLogHexDumpInfo;
 
 /**
  * Generates the next hex dump line.
@@ -243,12 +243,12 @@ typedef struct
  *  "| 10 3E 3C F5 D3 70       |                         | .><..p           |"
  *  "------------------------------------------------------------------------"
  *
- * @param[in,out] aInfo        A pointer to `tinyLogHexDumpInfo` to use to generate hex dump.
+ * @param[in,out] aInfo        A pointer to `tyLogHexDumpInfo` to use to generate hex dump.
  *
- * @retval TINY_ERROR_NONE       Successfully generated the next line, `mLine` field in @p aInfo is updated.
- * @retval TINY_ERROR_NTINY_FOUND  Reached the end and no more line to generate.
+ * @retval TY_ERROR_NONE       Successfully generated the next line, `mLine` field in @p aInfo is updated.
+ * @retval TY_ERROR_NTY_FOUND  Reached the end and no more line to generate.
  */
-tinyError tinyLogGenerateNextHexDumpLine(tinyLogHexDumpInfo *aInfo);
+tinyError tyLogGenerateNextHexDumpLine(tyLogHexDumpInfo *aInfo);
 
 /**
  * @}
@@ -258,4 +258,4 @@ tinyError tinyLogGenerateNextHexDumpLine(tinyLogHexDumpInfo *aInfo);
 } // extern "C"
 #endif
 
-#endif // TINY_LOGGING_H_
+#endif // TY_LOGGING_H_

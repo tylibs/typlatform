@@ -13,9 +13,9 @@
 
 #include "platform-esp.h"
 #include "tiny/logging.h"
-#if (TINY_CONFIG_LOG_OUTPUT == TINY_CONFIG_LOG_OUTPUT_PLATFORM_DEFINED) || \
-    (TINY_CONFIG_LOG_OUTPUT == TINY_CONFIG_LOG_OUTPUT_NCP_SPINEL)
-TINY_TOOL_WEAK void tinyPlatLog(tinyLogLevel log_level, const char *logRegion, const char *format, ...)
+#if (TY_CONFIG_LOG_OUTPUT == TY_CONFIG_LOG_OUTPUT_PLATFORM_DEFINED) || \
+    (TY_CONFIG_LOG_OUTPUT == TY_CONFIG_LOG_OUTPUT_NCP_SPINEL)
+TY_TOOL_WEAK void tyPlatLog(tyLogLevel log_level, const char *logRegion, const char *format, ...)
 {
     va_list args;
 
@@ -23,7 +23,7 @@ TINY_TOOL_WEAK void tinyPlatLog(tinyLogLevel log_level, const char *logRegion, c
 
     switch (log_level)
     {
-    case TINY_LOG_LEVEL_CRIT:
+    case TY_LOG_LEVEL_CRIT:
         if (LOG_LOCAL_LEVEL >= ESP_LOG_ERROR)
         {
             esp_log_write(ESP_LOG_ERROR, logRegion, LOG_COLOR_E "E(%lu) %s:", (long int)esp_log_timestamp(), logRegion);
@@ -31,7 +31,7 @@ TINY_TOOL_WEAK void tinyPlatLog(tinyLogLevel log_level, const char *logRegion, c
             esp_log_write(ESP_LOG_ERROR, logRegion, LOG_RESET_COLOR "\n");
         }
         break;
-    case TINY_LOG_LEVEL_WARN:
+    case TY_LOG_LEVEL_WARN:
         if (LOG_LOCAL_LEVEL >= ESP_LOG_WARN)
         {
             esp_log_write(ESP_LOG_WARN, logRegion, LOG_COLOR_W "W(%lu) %s:", (long int)esp_log_timestamp(), logRegion);
@@ -39,8 +39,8 @@ TINY_TOOL_WEAK void tinyPlatLog(tinyLogLevel log_level, const char *logRegion, c
             esp_log_write(ESP_LOG_WARN, logRegion, LOG_RESET_COLOR "\n");
         }
         break;
-    case TINY_LOG_LEVEL_NOTE:
-    case TINY_LOG_LEVEL_INFO:
+    case TY_LOG_LEVEL_NOTE:
+    case TY_LOG_LEVEL_INFO:
         if (LOG_LOCAL_LEVEL >= ESP_LOG_INFO)
         {
             esp_log_write(ESP_LOG_INFO, logRegion, LOG_COLOR_I "I(%lu) %s:", (long int)esp_log_timestamp(), logRegion);

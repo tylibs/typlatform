@@ -10,26 +10,26 @@
 #include "tiny/logging.h"
 #include "tiny/platform/toolchain.h"
 
-void tinyPlatLog(tinyLogLevel aLogLevel, const char *aTag, const char *aFormat, ...)
+void tyPlatLog(tyLogLevel aLogLevel, const char *aTag, const char *aFormat, ...)
 {
 #if defined(CONFIG_TINYPLATFORM_LOG)
     va_list args;
 
     switch (aLogLevel)
     {
-    case TINY_LOG_LEVEL_NONE:
+    case TY_LOG_LEVEL_NONE:
         aLogLevel = LOG_ALERT;
         break;
-    case TINY_LOG_LEVEL_CRIT:
+    case TY_LOG_LEVEL_CRIT:
         aLogLevel = LOG_CRIT;
         break;
-    case TINY_LOG_LEVEL_WARN:
+    case TY_LOG_LEVEL_WARN:
         aLogLevel = LOG_WARNING;
         break;
-    case TINY_LOG_LEVEL_INFO:
+    case TY_LOG_LEVEL_INFO:
         aLogLevel = LOG_INFO;
         break;
-    case TINY_LOG_LEVEL_DEBG:
+    case TY_LOG_LEVEL_DEBG:
         aLogLevel = LOG_DEBUG;
         break;
     default:
@@ -47,8 +47,8 @@ void tinyPlatLog(tinyLogLevel aLogLevel, const char *aTag, const char *aFormat, 
 #endif
     va_end(args);
 #else
-    TINY_UNUSED_VARIABLE(aLogLevel);
-    TINY_UNUSED_VARIABLE(aTag);
-    TINY_UNUSED_VARIABLE(aFormat);
+    TY_UNUSED_VARIABLE(aLogLevel);
+    TY_UNUSED_VARIABLE(aTag);
+    TY_UNUSED_VARIABLE(aFormat);
 #endif
 }

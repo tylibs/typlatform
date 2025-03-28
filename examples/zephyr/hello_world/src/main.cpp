@@ -26,7 +26,7 @@ extern "C" int main(void)
 
     while (true)
     {
-        tinyLogInfoPlat("%s", "Hello, World!");
+        tyLogInfoPlat("%s", "Hello, World!");
         // next event in 1 second
         k_sleep(K_SECONDS(1));
     }

@@ -24,21 +24,21 @@
  *
  * It is reasonable to only enable the debug UART and not enable logs to the DEBUG UART.
  */
-#if (TINY_CONFIG_LOG_OUTPUT == TINY_CONFIG_LOG_OUTPUT_DEBUG_UART) && (!TINY_CONFIG_ENABLE_DEBUG_UART)
-#error "TINY_CONFIG_ENABLE_DEBUG_UART_LOG requires TINY_CONFIG_ENABLE_DEBUG_UART"
+#if (TY_CONFIG_LOG_OUTPUT == TY_CONFIG_LOG_OUTPUT_DEBUG_UART) && (!TY_CONFIG_ENABLE_DEBUG_UART)
+#error "TY_CONFIG_ENABLE_DEBUG_UART_LOG requires TY_CONFIG_ENABLE_DEBUG_UART"
 #endif
 
-#if TINY_CONFIG_LOG_PREPEND_UPTIME && !TINY_CONFIG_UPTIME_ENABLE
-#error "TINY_CONFIG_LOG_PREPEND_UPTIME requires TINY_CONFIG_UPTIME_ENABLE"
+#if TY_CONFIG_LOG_PREPEND_UPTIME && !TY_CONFIG_UPTIME_ENABLE
+#error "TY_CONFIG_LOG_PREPEND_UPTIME requires TY_CONFIG_UPTIME_ENABLE"
 #endif
 
-#if TINY_CONFIG_LOG_PREPEND_UPTIME && TINY_CONFIG_MULTIPLE_INSTANCE_ENABLE
-#error "TINY_CONFIG_LOG_PREPEND_UPTIME is not supported under TINY_CONFIG_MULTIPLE_INSTANCE_ENABLE"
+#if TY_CONFIG_LOG_PREPEND_UPTIME && TY_CONFIG_MULTIPLE_INSTANCE_ENABLE
+#error "TY_CONFIG_LOG_PREPEND_UPTIME is not supported under TY_CONFIG_MULTIPLE_INSTANCE_ENABLE"
 #endif
 
 namespace tiny {
 
-#if TINY_SHOULD_LOG
+#if TY_SHOULD_LOG
 
 template <LogLevel kLogLevel> void Logger::LogAtLevel(const char *aModuleName, const char *aFormat, ...)
 {
@@ -70,21 +70,21 @@ void Logger::LogVarArgs(const char *aModuleName, LogLevel aLogLevel, const char 
 {
     static const char kModuleNamePadding[] = "--------------";
 
-    tiny::String<TINY_CONFIG_LOG_MAX_SIZE> logString;
+    tiny::String<TY_CONFIG_LOG_MAX_SIZE> logString;
 
     static_assert(sizeof(kModuleNamePadding) == kMaxLogModuleNameLength + 1, "Padding string is not correct");
 
-#if TINY_CONFIG_LOG_PREPEND_UPTIME
+#if TY_CONFIG_LOG_PREPEND_UPTIME
     tiny::Uptime::UptimeToString(tiny::Instance::Get().Get<ot::Uptime>().GetUptime(), logString,
                                  /* aInlcudeMsec */ true);
     logString.Append(" ");
 #endif
 
-#if TINY_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE
+#if TY_CONFIG_LOG_LEVEL_DYNAMIC_ENABLE
     VerifyOrExit(Instance::GetLogLevel() >= aLogLevel);
 #endif
 
-#if TINY_CONFIG_LOG_PREPEND_LEVEL
+#if TY_CONFIG_LOG_PREPEND_LEVEL
     {
         static const char kLevelChars[] = {
             '-', /* kLogLevelNone */
@@ -104,8 +104,8 @@ void Logger::LogVarArgs(const char *aModuleName, LogLevel aLogLevel, const char 
 
     logString.AppendVarArgs(aFormat, aArgs);
 
-    logString.Append("%s", TINY_CONFIG_LOG_SUFFIX);
-    tinyPlatLog(aLogLevel, TINY_LOG_REGION_CORE, "%s", logString.AsCString());
+    logString.Append("%s", TY_CONFIG_LOG_SUFFIX);
+    tyPlatLog(aLogLevel, TY_LOG_REGION_CORE, "%s", logString.AsCString());
 
     ExitNow();
 
@@ -113,7 +113,7 @@ exit:
     return;
 }
 
-#if TINY_SHOULD_LOG_AT(TINY_LOG_LEVEL_WARN)
+#if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_WARN)
 void Logger::LogOnError(const char *aModuleName, Error aError, const char *aText)
 {
     if (aError != kErrorNone)
@@ -123,7 +123,7 @@ void Logger::LogOnError(const char *aModuleName, Error aError, const char *aText
 }
 #endif
 
-#if TINY_CONFIG_LOG_PKT_DUMP
+#if TY_CONFIG_LOG_PKT_DUMP
 
 template <LogLevel kLogLevel>
 void Logger::DumpAtLevel(const char *aModuleName, const char *aText, const void *aData, uint16_t aDataLength)
@@ -165,7 +165,7 @@ void Logger::DumpInModule(const char *aModuleName,
 {
     HexDumpInfo info;
 
-    VerifyOrExit(tinyLoggingGetLevel() >= aLogLevel);
+    VerifyOrExit(tyLoggingGetLevel() >= aLogLevel);
 
     info.mDataBytes  = reinterpret_cast<const uint8_t *>(aData);
     info.mDataLength = aDataLength;
@@ -181,9 +181,9 @@ exit:
     return;
 }
 
-#endif // TINY_CONFIG_LOG_PKT_DUMP
+#endif // TY_CONFIG_LOG_PKT_DUMP
 
-#endif // TINY_SHOULD_LOG
+#endif // TY_SHOULD_LOG
 
 Error GenerateNextHexDumpLine(HexDumpInfo &aInfo)
 {
@@ -222,7 +222,7 @@ Error GenerateNextHexDumpLine(HexDumpInfo &aInfo)
 
     case kIterFirstDataLine:
         aInfo.mIterator = 0;
-        TINY_FALL_THROUGH;
+        TY_FALL_THROUGH;
 
     default:
     {

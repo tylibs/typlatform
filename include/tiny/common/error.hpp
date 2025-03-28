@@ -23,19 +23,19 @@ namespace tiny {
 typedef tinyError Error;
 
 /*
- * The `TINY_ERROR_*` enumeration values are re-defined using `kError` style format.
+ * The `TY_ERROR_*` enumeration values are re-defined using `kError` style format.
  * See `tiny/error.h` for more details about each error.
  */
-constexpr Error kErrorNone                    = TINY_ERROR_NONE;
-constexpr Error kErrorSubscriberCountExceeded = TINY_ERROR_SUBSCRIBER_COUNT_EXCEEDED;
-constexpr Error kErrorNotFound                = TINY_ERROR_NOT_FOUND;
-constexpr Error kErrorNoBufs                  = TINY_ERROR_NO_BUFS;
-constexpr Error kErrorInvalidArgs             = TINY_ERROR_INVALID_ARGS;
-constexpr Error kErrorParse                   = TINY_ERROR_PARSE;
-constexpr Error kErrorFailed                  = TINY_ERROR_FAILED;
-constexpr Error kErrorGeneric                 = TINY_ERROR_GENERIC;
+constexpr Error kErrorNone                    = TY_ERROR_NONE;
+constexpr Error kErrorSubscriberCountExceeded = TY_ERROR_SUBSCRIBER_COUNT_EXCEEDED;
+constexpr Error kErrorNotFound                = TY_ERROR_NOT_FOUND;
+constexpr Error kErrorNoBufs                  = TY_ERROR_NO_BUFS;
+constexpr Error kErrorInvalidArgs             = TY_ERROR_INVALID_ARGS;
+constexpr Error kErrorParse                   = TY_ERROR_PARSE;
+constexpr Error kErrorFailed                  = TY_ERROR_FAILED;
+constexpr Error kErrorGeneric                 = TY_ERROR_GENERIC;
 
-constexpr uint8_t kNumErrors = TINY_NUM_ERRORS;
+constexpr uint8_t kNumErrors = TY_NUM_ERRORS;
 
 /**
  * Converts an `Error` into a string.

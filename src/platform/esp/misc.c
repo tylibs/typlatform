@@ -12,7 +12,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 
-void tinyPlatThreadSleepMs(uint32_t aSleepMs)
+void tyPlatThreadSleepMs(uint32_t aSleepMs)
 {
     vTaskDelay(aSleepMs / portTICK_PERIOD_MS);
 }
