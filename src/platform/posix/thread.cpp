@@ -9,12 +9,14 @@
 
 #include "ty/ty-core-config.h"
 
+#include "ty/platform/thread.h"
+
 #include <errno.h>
 #include <pthread.h>
 #include <stdint.h>
 #include <time.h>
 
-extern "C" void tyPlatThreadSleepMs(uint32_t aSleepMs)
+extern "C" void tyPlatDelay(uint32_t aSleepMs)
 {
     struct timespec ts;
     int             res;

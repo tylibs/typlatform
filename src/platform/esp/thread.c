@@ -9,9 +9,12 @@
 
 #include "ty/ty-core-config.h"
 
-#include "zephyr/kernel.h"
+#include "ty/platform/thread.h"
 
-void tyPlatThreadSleepMs(uint32_t aSleepMs)
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+
+void tyPlatDelay(uint32_t aSleepMs)
 {
-    k_msleep(aSleepMs);
+    vTaskDelay(aSleepMs / portTICK_PERIOD_MS);
 }
