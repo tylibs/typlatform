@@ -7,7 +7,7 @@
  *   This file includes platform abstractions for miscellaneous behaviors.
  */
 
-#include "tiny/tiny-core-config.h"
+#include "ty/ty-core-config.h"
 
 #include "zephyr/kernel.h"
 

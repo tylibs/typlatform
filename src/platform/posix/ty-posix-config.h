@@ -1,0 +1,11 @@
+// SPDX-FileCopyrightText: Copyright 2025 Clever Design (Switzerland) GmbH
+// SPDX-License-Identifier: Apache-2.0
+
+#ifndef TYPLATFORM_POSIX_CONFIG_H_
+#define TYPLATFORM_POSIX_CONFIG_H_
+
+#define CONFIG_TYPLATFORM_MAX_SUBSCRIBERS 64
+#define CONFIG_TYPLATFORM_MAX_BACKLOG 64
+#define CONFIG_TYPLATFORM_LOG 1
+
+#endif // TYPLATFORM_POSIX_CONFIG_H_

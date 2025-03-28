@@ -9,10 +9,10 @@
 #include <esp_log.h>
 #include <stdarg.h>
 #include <stdio.h>
-#include <tiny/platform/toolchain.h>
+#include <ty/platform/toolchain.h>
 
 #include "platform-esp.h"
-#include "tiny/logging.h"
+#include "ty/logging.h"
 #if (TY_CONFIG_LOG_OUTPUT == TY_CONFIG_LOG_OUTPUT_PLATFORM_DEFINED) || \
     (TY_CONFIG_LOG_OUTPUT == TY_CONFIG_LOG_OUTPUT_NCP_SPINEL)
 TY_TOOL_WEAK void tyPlatLog(tyLogLevel log_level, const char *logRegion, const char *format, ...)

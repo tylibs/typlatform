@@ -12,8 +12,8 @@
 
 #include <stdlib.h>
 
-#include <tiny/error.h>
-#include <tiny/platform/toolchain.h>
+#include <ty/error.h>
+#include <ty/platform/toolchain.h>
 
 #ifdef __cplusplus
 extern "C" {

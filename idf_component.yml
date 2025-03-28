@@ -2,9 +2,9 @@
 # SPDX-License-Identifier: Apache-2.0
 
 version: 1.0.0
-description: "TinyPlatform Library - platform implementations used in Tiny libraries"
+description: "TyPlatform Library - platform implementations used in Tiny libraries"
 license: "Apache-2.0"
-repository: "https://github.com/tinybus/tinyplatform"
+repository: "https://github.com/tinybus/typlatform"
 dependencies:
   idf: ">=5.0"
 files:

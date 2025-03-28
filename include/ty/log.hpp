@@ -9,12 +9,12 @@
 #ifndef LOG_HPP_
 #define LOG_HPP_
 
-#include "tiny-core-config.h"
+#include "ty-core-config.h"
 
-#include <tiny/logging.h>
-#include <tiny/common/error.hpp>
-#include <tiny/platform/logging.h>
-#include <tiny/platform/toolchain.h>
+#include <ty/logging.h>
+#include <ty/common/error.hpp>
+#include <ty/platform/logging.h>
+#include <ty/platform/toolchain.h>
 
 namespace tiny {
 

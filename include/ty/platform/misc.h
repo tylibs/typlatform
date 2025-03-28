@@ -12,7 +12,7 @@
 
 #include <stdint.h>
 
-#include <tiny/instance.h>
+#include <ty/instance.h>
 
 #ifdef __cplusplus
 extern "C" {

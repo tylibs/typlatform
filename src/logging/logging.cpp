@@ -6,15 +6,15 @@
  * @file
  *   This file implements the OpenThread logging related APIs.
  */
-#include "tiny/tiny-core-config.h"
+#include "ty/ty-core-config.h"
 
-#include "tiny/common/code_utils.hpp"
-#include "tiny/common/debug.hpp"
+#include "ty/common/code_utils.hpp"
+#include "ty/common/debug.hpp"
 
 #include "common/string.hpp"
 
 #include "instance/instance.hpp"
-#include "tiny/log.hpp"
+#include "ty/log.hpp"
 
 using namespace tiny;
 

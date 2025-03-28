@@ -6,7 +6,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CONFIG_TY_LOG_LEVEL TY_LOG_LEVEL_INFO)
 project(hello_world)
 
-# include tinyplatform module
+# include typlatform module
 #
 # Note the second, binary_dir parameter requires the added subdirectory to have
 # its own, local cmake target(s). If not then this binary_dir is created but

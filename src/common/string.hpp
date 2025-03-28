@@ -9,18 +9,18 @@
 #ifndef STRING_HPP_
 #define STRING_HPP_
 
-#include "tiny/tiny-core-config.h"
+#include "ty/ty-core-config.h"
 
 #include <stdarg.h>
 #include <stdint.h>
 #include <stdio.h>
 
-#include "tiny/common/binary_search.hpp"
-#include "tiny/common/code_utils.hpp"
-#include "tiny/common/error.hpp"
-#include "tiny/common/num_utils.hpp"
+#include "ty/common/binary_search.hpp"
+#include "ty/common/code_utils.hpp"
+#include "ty/common/error.hpp"
+#include "ty/common/num_utils.hpp"
 
-#include "tiny/platform/toolchain.h"
+#include "ty/platform/toolchain.h"
 
 namespace tiny {
 

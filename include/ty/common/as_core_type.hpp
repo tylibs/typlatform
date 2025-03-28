@@ -9,9 +9,9 @@
 #ifndef AS_CORE_TYPE_HPP_
 #define AS_CORE_TYPE_HPP_
 
-#include "tiny/tiny-core-config.h"
+#include "ty/ty-core-config.h"
 
-#include "tiny/common/debug.hpp"
+#include "ty/common/debug.hpp"
 
 namespace tiny {
 

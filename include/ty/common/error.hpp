@@ -9,9 +9,9 @@
 #ifndef ERROR_HPP_
 #define ERROR_HPP_
 
-#include "tiny/tiny-core-config.h"
+#include "ty/ty-core-config.h"
 
-#include <tiny/error.h>
+#include <ty/error.h>
 
 #include <stdint.h>
 
@@ -24,7 +24,7 @@ typedef tinyError Error;
 
 /*
  * The `TY_ERROR_*` enumeration values are re-defined using `kError` style format.
- * See `tiny/error.h` for more details about each error.
+ * See `ty/error.h` for more details about each error.
  */
 constexpr Error kErrorNone                    = TY_ERROR_NONE;
 constexpr Error kErrorSubscriberCountExceeded = TY_ERROR_SUBSCRIBER_COUNT_EXCEEDED;

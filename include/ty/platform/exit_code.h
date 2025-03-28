@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <tiny/logging.h>
+#include <ty/logging.h>
 #ifdef __cplusplus
 extern "C" {
 #endif

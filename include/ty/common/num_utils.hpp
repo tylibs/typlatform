@@ -4,8 +4,8 @@
 #ifndef TY_NUM_UTILS_HPP_
 #define TY_NUM_UTILS_HPP_
 
-#include "tiny/common/numeric_limits.hpp"
-#include "tiny/common/type_traits.hpp"
+#include "ty/common/numeric_limits.hpp"
+#include "ty/common/type_traits.hpp"
 
 namespace tiny {
 

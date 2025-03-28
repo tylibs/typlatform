@@ -338,7 +338,7 @@
  * Use #1 - for random 'debug printf' type messages a developer may need
  * Use #2 (selected via DEBUG_LOG_OUTPUT) is a log output.
  *
- * See #include <tiny/platform/debug_uart.h> for more details
+ * See #include <ty/platform/debug_uart.h> for more details
  */
 #ifndef TY_CONFIG_ENABLE_DEBUG_UART
 #define TY_CONFIG_ENABLE_DEBUG_UART 0

@@ -1,11 +1,11 @@
 // SPDX-FileCopyrightText: Copyright 2025 Clever Design (Switzerland) GmbH
 // SPDX-License-Identifier: Apache-2.0
 
-#include "tiny/instance.h"
+#include "ty/instance.h"
 #include "instance.hpp"
-#include "tiny/common/as_core_type.hpp"
-#include "tiny/common/code_utils.hpp"
-#include "tiny/common/new.hpp"
+#include "ty/common/as_core_type.hpp"
+#include "ty/common/code_utils.hpp"
+#include "ty/common/new.hpp"
 
 /********************************************
  * C API

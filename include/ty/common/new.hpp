@@ -11,7 +11,7 @@
 
 #include <stddef.h>
 
-#include "tiny/platform/toolchain.h"
+#include "ty/platform/toolchain.h"
 
 inline void *operator new(size_t, void *p) throw()
 {

@@ -3,10 +3,10 @@
 #ifndef PLATFORM_ZEPHYR_H_
 #define PLATFORM_ZEPHYR_H_
 
-#include "tinyplatform-config.h"
+#include "typlatform-config.h"
 #include <stdint.h>
-#include <tiny/error.h>
-#include <tiny/platform/toolchain.h>
+#include <ty/error.h>
+#include <ty/platform/toolchain.h>
 
 /**
  * This function initializes the scheduler service.

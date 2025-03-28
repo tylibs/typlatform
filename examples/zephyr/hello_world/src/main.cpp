@@ -4,14 +4,14 @@
 /**
  * @file
  * @brief
- *   TinyPlatform simplest example: Hello World
+ *   TyPlatform simplest example: Hello World
  */
 
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
-#include <tiny/instance.h>
-#include <tiny/logging.h>
-#include <tiny/platform/toolchain.h>
+#include <ty/instance.h>
+#include <ty/logging.h>
+#include <ty/platform/toolchain.h>
 
 #define LOG_MODULE_NAME main
 LOG_MODULE_REGISTER(main);

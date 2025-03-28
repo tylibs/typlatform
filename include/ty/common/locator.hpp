@@ -9,9 +9,9 @@
 #ifndef LOCATOR_HPP_
 #define LOCATOR_HPP_
 
-#include "tiny/tiny-core-config.h"
+#include "ty/ty-core-config.h"
 
-#include <tiny/platform/toolchain.h>
+#include <ty/platform/toolchain.h>
 
 #include <stdint.h>
 

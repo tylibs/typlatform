@@ -9,7 +9,7 @@
 #ifndef DEBUG_HPP_
 #define DEBUG_HPP_
 
-#include "tiny/tiny-core-config.h"
+#include "ty/ty-core-config.h"
 
 #include <ctype.h>
 #include <stdio.h>

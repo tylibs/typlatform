@@ -2,8 +2,8 @@
 // SPDX-FileCopyrightText: Copyright 2025 Clever Design (Switzerland) GmbH
 // SPDX-License-Identifier: Apache-2.0
 
-#include "tiny/common/error.hpp"
-#include "tiny/common/array.hpp"
+#include "ty/common/error.hpp"
+#include "ty/common/array.hpp"
 
 namespace tiny {
 

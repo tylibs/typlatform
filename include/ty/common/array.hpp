@@ -9,14 +9,14 @@
 #ifndef ARRAY_HPP_
 #define ARRAY_HPP_
 
-#include "tiny/tiny-core-config.h"
+#include "ty/ty-core-config.h"
 
-#include "tiny/common/code_utils.hpp"
-// #include "tiny/common/const_cast.hpp"
-#include "tiny/common/error.hpp"
-#include "tiny/common/locator.hpp"
-#include "tiny/common/numeric_limits.hpp"
-#include "tiny/common/type_traits.hpp"
+#include "ty/common/code_utils.hpp"
+// #include "ty/common/const_cast.hpp"
+#include "ty/common/error.hpp"
+#include "ty/common/locator.hpp"
+#include "ty/common/numeric_limits.hpp"
+#include "ty/common/type_traits.hpp"
 
 namespace tiny {
 

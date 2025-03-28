@@ -7,7 +7,7 @@
  */
 
 #include "string.hpp"
-#include "tiny/common/debug.hpp"
+#include "ty/common/debug.hpp"
 
 #include <string.h>
 

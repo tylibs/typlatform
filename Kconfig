@@ -21,13 +21,13 @@ menu "Tiny configuration"
 		bool "Enable logging"
 		default "y"
 		help
-			Selects whether tinyplatform logs messages.
+			Selects whether typlatform logs messages.
 
 	config TY_ASSERTS
 		bool "Enable asserts"
 		default "y"
 		help
-			Selects whether tinyplatform performs runtime assert checks.
+			Selects whether typlatform performs runtime assert checks.
 choice TY_LOG_LEVEL_CHOICE
 	prompt "Tiny stack log level"
 	depends on TY_DEBUG

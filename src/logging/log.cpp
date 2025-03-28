@@ -6,18 +6,18 @@
  *   This file implements the logging related functions.
  */
 
-#include "tiny/log.hpp"
+#include "ty/log.hpp"
 
 #include <ctype.h>
 
-#include <tiny/platform/logging.h>
+#include <ty/platform/logging.h>
 
 #include "common/string.hpp"
 
 #include "instance/instance.hpp"
-#include "tiny/common/code_utils.hpp"
-#include "tiny/common/num_utils.hpp"
-#include "tiny/common/numeric_limits.hpp"
+#include "ty/common/code_utils.hpp"
+#include "ty/common/num_utils.hpp"
+#include "ty/common/numeric_limits.hpp"
 
 /*
  * Verify debug UART dependency.

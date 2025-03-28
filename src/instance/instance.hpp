@@ -4,9 +4,9 @@
 #ifndef INSTANCE_H_
 #define INSTANCE_H_
 
-#include <tiny/log.hpp>
-#include <tiny/common/as_core_type.hpp>
-#include <tiny/common/non_copyable.hpp>
+#include <ty/log.hpp>
+#include <ty/common/as_core_type.hpp>
+#include <ty/common/non_copyable.hpp>
 
 typedef struct tinyInstance
 {

@@ -6,7 +6,7 @@
  *   This file implements exit code utilities.
  */
 
-#include <tiny/platform/exit_code.h>
+#include <ty/platform/exit_code.h>
 
 #include <assert.h>
 #include <errno.h>

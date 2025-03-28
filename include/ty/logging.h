@@ -10,9 +10,9 @@
 #ifndef TY_LOGGING_H_
 #define TY_LOGGING_H_
 
-#include <tiny/error.h>
-#include <tiny/platform/logging.h>
-#include <tiny/platform/toolchain.h>
+#include <ty/error.h>
+#include <ty/platform/logging.h>
+#include <ty/platform/toolchain.h>
 
 #ifdef __cplusplus
 extern "C" {

@@ -4,15 +4,15 @@
 /**
  * @file
  * @brief
- *   TinyPlatform simplest example: Hello World
+ *   TyPlatform simplest example: Hello World
  */
 
 #include <esp_log.h>
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
-#include <tiny/instance.h>
-#include <tiny/logging.h>
-#include <tiny/platform/toolchain.h>
+#include <ty/instance.h>
+#include <ty/logging.h>
+#include <ty/platform/toolchain.h>
 
 const char *TAG = "main";
 

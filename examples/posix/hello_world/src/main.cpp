@@ -4,14 +4,14 @@
 /**
  * @file
  * @brief
- *   TinyPlatform simplest example: Hello World
+ *   TyPlatform simplest example: Hello World
  */
 
 #include <pthread.h>
 #include <stdio.h>
 #include <unistd.h>
-#include <tiny/instance.h>
-#include <tiny/logging.h>
+#include <ty/instance.h>
+#include <ty/logging.h>
 
 extern "C" int main(void)
 {
