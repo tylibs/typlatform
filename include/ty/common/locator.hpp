@@ -15,7 +15,7 @@
 
 #include <stdint.h>
 
-namespace tiny {
+namespace ty {
 
 class Instance;
 
@@ -151,6 +151,6 @@ protected:
  * @}
  */
 
-} // namespace tiny
+} // namespace ty
 
 #endif // LOCATOR_HPP_

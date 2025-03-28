@@ -12,26 +12,26 @@
  *******************************************/
 tinyInstance *tinyInstanceInitSingle(void)
 {
-    return &tiny::Instance::InitSingle();
+    return &ty::Instance::InitSingle();
 }
 tinyInstance *tinyInstanceFinalize(void)
 {
-    return &tiny::Instance::InitSingle();
+    return &ty::Instance::InitSingle();
 }
 void tinyInstanceFinalize(tinyInstance *aInstance)
 {
-    tiny::AsCoreType(aInstance).Finalize();
+    ty::AsCoreType(aInstance).Finalize();
 }
 
 // void tinyInstanceReset(tinyInstance *aInstance)
 // {
-//     tiny::AsCoreType(aInstance).Reset();
+//     ty::AsCoreType(aInstance).Reset();
 // }
 
 /********************************************
  * C++ Implementation
  *******************************************/
-namespace tiny {
+namespace ty {
 // Define the raw storage used for Tiny instance (in single-instance case).
 TY_DEFINE_ALIGNED_VAR(gInstanceRaw, sizeof(Instance), uint64_t);
 
@@ -74,4 +74,4 @@ void Instance::Finalize(void)
 exit:
     return;
 }
-} // namespace tiny
+} // namespace ty

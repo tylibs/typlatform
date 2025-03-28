@@ -5,7 +5,7 @@
 #include "ty/common/error.hpp"
 #include "ty/common/array.hpp"
 
-namespace tiny {
+namespace ty {
 
 const char *ErrorToString(Error aError)
 {
@@ -22,4 +22,4 @@ const char *ErrorToString(Error aError)
     return aError < GetArrayLength(kErrorStrings) ? kErrorStrings[aError] : "UnknownErrorType";
 }
 
-} // namespace tiny
+} // namespace ty

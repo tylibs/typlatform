@@ -16,7 +16,7 @@
 #include <ty/platform/logging.h>
 #include <ty/platform/toolchain.h>
 
-namespace tiny {
+namespace ty {
 
 /**
  * @def TY_SHOULD_LOG
@@ -373,6 +373,6 @@ typedef tyLogHexDumpInfo HexDumpInfo; ///< Represents the hex dump info.
  */
 Error GenerateNextHexDumpLine(HexDumpInfo &aInfo);
 
-} // namespace tiny
+} // namespace ty
 
 #endif // LOG_HPP_

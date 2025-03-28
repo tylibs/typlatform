@@ -9,7 +9,7 @@
 #ifndef NON_COPYABLE_HPP_
 #define NON_COPYABLE_HPP_
 
-namespace tiny {
+namespace ty {
 
 /**
  * Makes any class that derives from it non-copyable. It is intended to be used as a private base class.
@@ -24,6 +24,6 @@ protected:
     NonCopyable(void) = default;
 };
 
-} // namespace tiny
+} // namespace ty
 
 #endif // NON_COPYABLE_HPP_

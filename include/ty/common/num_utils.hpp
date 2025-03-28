@@ -7,7 +7,7 @@
 #include "ty/common/numeric_limits.hpp"
 #include "ty/common/type_traits.hpp"
 
-namespace tiny {
+namespace ty {
 
 /**
  * This template function returns the minimum of two given values.
@@ -243,6 +243,6 @@ template <typename UintType> uint8_t CountBitsInMask(UintType aMask)
     return count;
 }
 
-} // namespace tiny
+} // namespace ty
 
 #endif // TY_NUM_UTILS_HPP_

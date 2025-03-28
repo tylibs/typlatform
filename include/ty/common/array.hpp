@@ -18,7 +18,7 @@
 #include "ty/common/numeric_limits.hpp"
 #include "ty/common/type_traits.hpp"
 
-namespace tiny {
+namespace ty {
 
 /**
  * Returns the length of a given array (number of elements in the array).
@@ -544,6 +544,6 @@ private:
     IndexType mLength;
 };
 
-} // namespace tiny
+} // namespace ty
 
 #endif // ARRAY_HPP_

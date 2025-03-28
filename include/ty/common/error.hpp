@@ -15,7 +15,7 @@
 
 #include <stdint.h>
 
-namespace tiny {
+namespace ty {
 
 /**
  * Represents error codes used by Tiny core modules.
@@ -46,6 +46,6 @@ constexpr uint8_t kNumErrors = TY_NUM_ERRORS;
  */
 const char *ErrorToString(Error aError);
 
-} // namespace tiny
+} // namespace ty
 
 #endif // ERROR_HPP_

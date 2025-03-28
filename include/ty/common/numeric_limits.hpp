@@ -6,7 +6,7 @@
 
 #include <stdint.h>
 
-namespace tiny {
+namespace ty {
 
 static constexpr uint8_t kBitsPerByte = 8; ///< Number of bits in a byte.
 
@@ -87,6 +87,6 @@ template <> struct NumericLimits<uint64_t>
     static constexpr uint64_t kMax = UINT64_MAX;
 };
 
-} // namespace tiny
+} // namespace ty
 
 #endif // TY_NUMERIC_LIMITS_HPP_

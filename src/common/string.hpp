@@ -22,7 +22,7 @@
 
 #include "ty/platform/toolchain.h"
 
-namespace tiny {
+namespace ty {
 
 /**
  * @addtogroup core-string
@@ -539,6 +539,6 @@ public:
  * @}
  */
 
-} // namespace tiny
+} // namespace ty
 
 #endif // STRING_HPP_

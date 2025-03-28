@@ -16,7 +16,7 @@
 #include "instance/instance.hpp"
 #include "ty/log.hpp"
 
-using namespace tiny;
+using namespace ty;
 
 tyLogLevel tyLoggingGetLevel(void)
 {
@@ -177,7 +177,7 @@ void tyLogPlat(tyLogLevel aLogLevel, const char *aPlatModuleName, const char *aF
 void tyLogPlatArgs(tyLogLevel aLogLevel, const char *aPlatModuleName, const char *aFormat, va_list aArgs)
 {
 #if TY_SHOULD_LOG && TY_CONFIG_LOG_PLATFORM
-    tiny::String<kMaxLogModuleNameLength> moduleName;
+    ty::String<kMaxLogModuleNameLength> moduleName;
 
     TY_ASSERT(aLogLevel >= kLogLevelNone && aLogLevel <= kLogLevelDebg);
 

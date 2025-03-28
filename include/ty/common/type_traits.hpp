@@ -4,7 +4,7 @@
 #ifndef TY_TYPE_TRAITS_HPP_
 #define TY_TYPE_TRAITS_HPP_
 
-namespace tiny {
+namespace ty {
 namespace TypeTraits {
 
 /**
@@ -124,6 +124,6 @@ struct FirstArgTypeOf<RetType (*)(FirstArgType, Args...)>
 };
 
 } // namespace TypeTraits
-} // namespace tiny
+} // namespace ty
 
 #endif // TY_TYPE_TRAITS_HPP_

@@ -36,7 +36,7 @@
 #error "TY_CONFIG_LOG_PREPEND_UPTIME is not supported under TY_CONFIG_MULTIPLE_INSTANCE_ENABLE"
 #endif
 
-namespace tiny {
+namespace ty {
 
 #if TY_SHOULD_LOG
 
@@ -70,13 +70,13 @@ void Logger::LogVarArgs(const char *aModuleName, LogLevel aLogLevel, const char 
 {
     static const char kModuleNamePadding[] = "--------------";
 
-    tiny::String<TY_CONFIG_LOG_MAX_SIZE> logString;
+    ty::String<TY_CONFIG_LOG_MAX_SIZE> logString;
 
     static_assert(sizeof(kModuleNamePadding) == kMaxLogModuleNameLength + 1, "Padding string is not correct");
 
 #if TY_CONFIG_LOG_PREPEND_UPTIME
-    tiny::Uptime::UptimeToString(tiny::Instance::Get().Get<ot::Uptime>().GetUptime(), logString,
-                                 /* aInlcudeMsec */ true);
+    ty::Uptime::UptimeToString(ty::Instance::Get().Get<ot::Uptime>().GetUptime(), logString,
+                               /* aInlcudeMsec */ true);
     logString.Append(" ");
 #endif
 
@@ -273,4 +273,4 @@ Error GenerateNextHexDumpLine(HexDumpInfo &aInfo)
     return error;
 }
 
-} // namespace tiny
+} // namespace ty

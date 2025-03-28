@@ -11,7 +11,7 @@
 
 #include <string.h>
 
-namespace tiny {
+namespace ty {
 
 namespace {
 
@@ -415,4 +415,4 @@ exit:
     return ret;
 }
 
-} // namespace tiny
+} // namespace ty

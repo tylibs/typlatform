@@ -8,7 +8,7 @@
 
 #include <stdint.h>
 
-namespace tiny {
+namespace ty {
 
 class BinarySearch
 {
@@ -90,6 +90,6 @@ private:
                             Comparator  aComparator);
 };
 
-} // namespace tiny
+} // namespace ty
 
 #endif // BINARY_SEARCH_HPP_

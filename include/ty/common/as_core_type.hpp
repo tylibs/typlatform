@@ -13,7 +13,7 @@
 
 #include "ty/common/debug.hpp"
 
-namespace tiny {
+namespace ty {
 
 /**
  * Relates a given public OT type to its corresponding core C++ class/type.
@@ -130,6 +130,6 @@ template <typename EnumType> const typename MappedEnum<EnumType>::Type MapEnum(E
         using Type = FirstEnumType;                  \
     }
 
-} // namespace tiny
+} // namespace ty
 
 #endif // AS_CORE_TYPE_HPP_

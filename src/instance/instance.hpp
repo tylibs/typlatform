@@ -12,7 +12,7 @@ typedef struct tinyInstance
 {
 } tinyInstance;
 
-namespace tiny {
+namespace ty {
 
 /**
  * Represents a Tiny instance.
@@ -104,6 +104,6 @@ template <> inline Instance &Instance::Get(void)
 {
     return *this;
 }
-} // namespace tiny
+} // namespace ty
 
 #endif // INSTANCE_H_
