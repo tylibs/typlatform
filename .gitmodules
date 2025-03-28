@@ -1,3 +1,6 @@
 [submodule "lib/tycommon"]
 	path = lib/tycommon
 	url = git@github.com:tylibs/tycommon.git
+[submodule "lib/etlcpp"]
+	path = lib/etlcpp
+	url = https://github.com/tinybus/etlcpp.git
