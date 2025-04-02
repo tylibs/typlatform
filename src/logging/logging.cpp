@@ -36,7 +36,7 @@ exit:
 }
 #endif
 
-void tyLogCritPlat(const char *aModuleName, const char *aFormat, ...)
+void tyLogCrit(const char *aModuleName, const char *aFormat, ...)
 {
 #if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_CRIT) && TY_CONFIG_LOG_PLATFORM
     va_list args;
@@ -50,7 +50,7 @@ void tyLogCritPlat(const char *aModuleName, const char *aFormat, ...)
 #endif
 }
 
-void tyLogWarnPlat(const char *aModuleName, const char *aFormat, ...)
+void tyLogWarn(const char *aModuleName, const char *aFormat, ...)
 {
 #if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_WARN) && TY_CONFIG_LOG_PLATFORM
     va_list args;
@@ -63,7 +63,7 @@ void tyLogWarnPlat(const char *aModuleName, const char *aFormat, ...)
 #endif
 }
 
-void tyLogNotePlat(const char *aModuleName, const char *aFormat, ...)
+void tyLogNote(const char *aModuleName, const char *aFormat, ...)
 {
 #if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_NOTE) && TY_CONFIG_LOG_PLATFORM
     va_list args;
@@ -76,7 +76,7 @@ void tyLogNotePlat(const char *aModuleName, const char *aFormat, ...)
 #endif
 }
 
-void tyLogInfoPlat(const char *aModuleName, const char *aFormat, ...)
+void tyLogInfo(const char *aModuleName, const char *aFormat, ...)
 {
 #if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_INFO) && TY_CONFIG_LOG_PLATFORM
     va_list args;
@@ -89,7 +89,7 @@ void tyLogInfoPlat(const char *aModuleName, const char *aFormat, ...)
 #endif
 }
 
-void tyLogDebgPlat(const char *aModuleName, const char *aFormat, ...)
+void tyLogDebg(const char *aModuleName, const char *aFormat, ...)
 {
 #if TY_SHOULD_LOG_AT(TY_LOG_LEVEL_DEBG) && TY_CONFIG_LOG_PLATFORM
     va_list args;

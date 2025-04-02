@@ -112,7 +112,7 @@ tinyError tyLoggingSetLevel(tyLogLevel aLogLevel);
  * @param[in]  aFormat      The format string.
  * @param[in]  ...          Arguments for the format specification.
  */
-void tyLogCritPlat(const char *aModuleName, const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
+void tyLogCrit(const char *aModuleName, const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
 
 /**
  * Emits a log message at warning log level.
@@ -124,7 +124,7 @@ void tyLogCritPlat(const char *aModuleName, const char *aFormat, ...) TY_TOOL_PR
  * @param[in]  aFormat      The format string.
  * @param[in]  ...          Arguments for the format specification.
  */
-void tyLogWarnPlat(const char *aModuleName, const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
+void tyLogWarn(const char *aModuleName, const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
 
 /**
  * Emits a log message at note log level.
@@ -136,7 +136,7 @@ void tyLogWarnPlat(const char *aModuleName, const char *aFormat, ...) TY_TOOL_PR
  * @param[in]  aFormat      The format string.
  * @param[in]  ...          Arguments for the format specification.
  */
-void tyLogNotePlat(const char *aModuleName, const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
+void tyLogNote(const char *aModuleName, const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
 
 /**
  * Emits a log message at info log level.
@@ -148,7 +148,7 @@ void tyLogNotePlat(const char *aModuleName, const char *aFormat, ...) TY_TOOL_PR
  * @param[in]  aFormat      The format string.
  * @param[in]  ...          Arguments for the format specification.
  */
-void tyLogInfoPlat(const char *aModuleName, const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
+void tyLogInfo(const char *aModuleName, const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
 
 /**
  * Emits a log message at debug log level.
@@ -160,7 +160,7 @@ void tyLogInfoPlat(const char *aModuleName, const char *aFormat, ...) TY_TOOL_PR
  * @param[in]  aFormat      The format string.
  * @param[in]  ...          Arguments for the format specification.
  */
-void tyLogDebgPlat(const char *aModuleName, const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
+void tyLogDebg(const char *aModuleName, const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
 
 #define TY_LOG_HEX_DUMP_LINE_SIZE 73 ///< Hex dump line string size.
 
