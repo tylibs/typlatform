@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: Copyright 2025 Clever Design (Switzerland) GmbH
 // SPDX-License-Identifier: Apache-2.0
 
-#include "ty/platform/logging.h"
+#include "platform/logging.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include <syslog.h>

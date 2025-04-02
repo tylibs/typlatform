@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <zephyr/kernel.h>
 
-#include <ty/platform/logging.h>
+#include "platform/logging.h"
 
 #define LOG_MODULE_NAME net_openthread
 #define LOG_LEVEL LOG_LEVEL_DBG

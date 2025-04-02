@@ -10,7 +10,7 @@
 
 #include <ctype.h>
 
-#include <ty/platform/logging.h>
+#include "platform/logging.h"
 
 #include "common/string.hpp"
 

@@ -10,8 +10,8 @@
 #ifndef TY_LOGGING_H_
 #define TY_LOGGING_H_
 
+#include <stdarg.h>
 #include <ty/error.h>
-#include <ty/platform/logging.h>
 #include <ty/platform/toolchain.h>
 
 #ifdef __cplusplus
@@ -26,6 +26,59 @@ extern "C" {
  *
  * @{
  */
+
+/**
+ * Log level None.
+ *
+ * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
+ * #if/#else/#endif.
+ */
+#define TY_LOG_LEVEL_NONE 0
+
+/**
+ * Log level Critical.
+ *
+ * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
+ * #if/#else/#endif.
+ */
+#define TY_LOG_LEVEL_CRIT 1
+
+/**
+ * Log level Warning.
+ *
+ * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
+ * #if/#else/#endif.
+ */
+#define TY_LOG_LEVEL_WARN 2
+
+/**
+ * Log level Notice.
+ *
+ * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
+ * #if/#else/#endif.
+ */
+#define TY_LOG_LEVEL_NOTE 3
+
+/**
+ * Log level Informational.
+ *
+ * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
+ * #if/#else/#endif.
+ */
+#define TY_LOG_LEVEL_INFO 4
+
+/**
+ * Log level Debug.
+ *
+ * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
+ * #if/#else/#endif.
+ */
+#define TY_LOG_LEVEL_DEBG 5
+
+/**
+ * Represents the log level.
+ */
+typedef int tyLogLevel;
 
 /**
  * Returns the current log level.
@@ -55,10 +108,11 @@ tinyError tyLoggingSetLevel(tyLogLevel aLogLevel);
  * Is intended for use by platform. If `TY_CONFIG_LOG_PLATFORM` is not set or the current log
  * level is below critical, this function does not emit any log message.
  *
- * @param[in]  aFormat  The format string.
- * @param[in]  ...      Arguments for the format specification.
+ * @param[in]  aModuleName  The module name.
+ * @param[in]  aFormat      The format string.
+ * @param[in]  ...          Arguments for the format specification.
  */
-void tyLogCritPlat(const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(1, 2);
+void tyLogCritPlat(const char *aModuleName, const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
 
 /**
  * Emits a log message at warning log level.
@@ -66,10 +120,11 @@ void tyLogCritPlat(const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHE
  * Is intended for use by platform. If `TY_CONFIG_LOG_PLATFORM` is not set or the current log
  * level is below warning, this function does not emit any log message.
  *
- * @param[in]  aFormat  The format string.
- * @param[in]  ...      Arguments for the format specification.
+ * @param[in]  aModuleName  The module name.
+ * @param[in]  aFormat      The format string.
+ * @param[in]  ...          Arguments for the format specification.
  */
-void tyLogWarnPlat(const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(1, 2);
+void tyLogWarnPlat(const char *aModuleName, const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
 
 /**
  * Emits a log message at note log level.
@@ -77,10 +132,11 @@ void tyLogWarnPlat(const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHE
  * Is intended for use by platform. If `TY_CONFIG_LOG_PLATFORM` is not set or the current log
  * level is below note, this function does not emit any log message.
  *
- * @param[in]  aFormat  The format string.
- * @param[in]  ...      Arguments for the format specification.
+ * @param[in]  aModuleName  The module name.
+ * @param[in]  aFormat      The format string.
+ * @param[in]  ...          Arguments for the format specification.
  */
-void tyLogNotePlat(const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(1, 2);
+void tyLogNotePlat(const char *aModuleName, const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
 
 /**
  * Emits a log message at info log level.
@@ -88,10 +144,11 @@ void tyLogNotePlat(const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHE
  * Is intended for use by platform. If `TY_CONFIG_LOG_PLATFORM` is not set or the current log
  * level is below info, this function does not emit any log message.
  *
- * @param[in]  aFormat  The format string.
- * @param[in]  ...      Arguments for the format specification.
+ * @param[in]  aModuleName  The module name.
+ * @param[in]  aFormat      The format string.
+ * @param[in]  ...          Arguments for the format specification.
  */
-void tyLogInfoPlat(const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(1, 2);
+void tyLogInfoPlat(const char *aModuleName, const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
 
 /**
  * Emits a log message at debug log level.
@@ -99,119 +156,11 @@ void tyLogInfoPlat(const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHE
  * Is intended for use by platform. If `TY_CONFIG_LOG_PLATFORM` is not set or the current log
  * level is below debug, this function does not emit any log message.
  *
- * @param[in]  aFormat  The format string.
- * @param[in]  ...      Arguments for the format specification.
+ * @param[in]  aModuleName  The module name.
+ * @param[in]  aFormat      The format string.
+ * @param[in]  ...          Arguments for the format specification.
  */
-void tyLogDebgPlat(const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(1, 2);
-
-/**
- * Generates a memory dump at critical log level.
- *
- * If `TY_CONFIG_LOG_PLATFORM` or `TY_CONFIG_LOG_PKT_DUMP` is not set or the current log level is below
- * critical this function does not emit any log message.
- *
- * @param[in]  aText         A string that is printed before the bytes.
- * @param[in]  aData         A pointer to the data buffer.
- * @param[in]  aDataLength   Number of bytes in @p aData.
- */
-void otDumpCritPlat(const char *aText, const void *aData, uint16_t aDataLength);
-
-/**
- * Generates a memory dump at warning log level.
- *
- * If `TY_CONFIG_LOG_PLATFORM` or `TY_CONFIG_LOG_PKT_DUMP` is not set or the current log level is below
- * warning this function does not emit any log message.
- *
- * @param[in]  aText         A string that is printed before the bytes.
- * @param[in]  aData         A pointer to the data buffer.
- * @param[in]  aDataLength   Number of bytes in @p aData.
- */
-void otDumpWarnPlat(const char *aText, const void *aData, uint16_t aDataLength);
-
-/**
- * Generates a memory dump at note log level.
- *
- * If `TY_CONFIG_LOG_PLATFORM` or `TY_CONFIG_LOG_PKT_DUMP` is not set or the current log level is below
- * note this function does not emit any log message.
- *
- * @param[in]  aText         A string that is printed before the bytes.
- * @param[in]  aData         A pointer to the data buffer.
- * @param[in]  aDataLength   Number of bytes in @p aData.
- */
-void otDumpNotePlat(const char *aText, const void *aData, uint16_t aDataLength);
-
-/**
- * Generates a memory dump at info log level.
- *
- * If `TY_CONFIG_LOG_PLATFORM` or `TY_CONFIG_LOG_PKT_DUMP` is not set or the current log level is below
- * info this function does not emit any log message.
- *
- * @param[in]  aText         A string that is printed before the bytes.
- * @param[in]  aData         A pointer to the data buffer.
- * @param[in]  aDataLength   Number of bytes in @p aData.
- */
-void otDumpInfoPlat(const char *aText, const void *aData, uint16_t aDataLength);
-
-/**
- * Generates a memory dump at debug log level.
- *
- * If `TY_CONFIG_LOG_PLATFORM` or `TY_CONFIG_LOG_PKT_DUMP` is not set or the current log level is below
- * debug this function does not emit any log message.
- *
- * @param[in]  aText         A string that is printed before the bytes.
- * @param[in]  aData         A pointer to the data buffer.
- * @param[in]  aDataLength   Number of bytes in @p aData.
- */
-void otDumpDebgPlat(const char *aText, const void *aData, uint16_t aDataLength);
-
-/**
- * Emits a log message at given log level using a platform module name.
- *
- * This is is intended for use by platform. If `TY_CONFIG_LOG_PLATFORM` is not set or the current log
- * level is below @p aLogLevel , this function does not emit any log message.
- *
- * The @p aPlatModuleName name is used to determine the log module name in the emitted log message, following the
- * `P-{PlatModuleName}---` format. This means that the prefix string "P-" is added to indicate that this is a platform
- * sub-module, followed by the next 12 characters of the @p PlatModuleName string, with padded hyphens `-` at the end
- * to ensure that the region name is 14 characters long.
-
- * @param[in] aLogLevel         The log level.
- * @param[in] aPlatModuleName   The platform sub-module name.
- * @param[in] aFormat           The format string.
- * @param[in] ...               Arguments for the format specification.
- */
-void tyLogPlat(tyLogLevel aLogLevel, const char *aPlatModuleName, const char *aFormat, ...)
-    TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(3, 4);
-
-/**
- * Emits a log message at given log level using a platform module name.
- *
- * This is is intended for use by platform. If `TY_CONFIG_LOG_PLATFORM` is not set or the current log
- * level is below @p aLogLevel , this function does not emit any log message.
- *
- * The @p aPlatModuleName name is used to determine the log module name in the emitted log message, following the
- * `P-{PlatModuleName}---` format. This means that the prefix string "P-" is added to indicate that this is a platform
- * sub-module, followed by the next 12 characters of the @p PlatModuleName string, with padded hyphens `-` at the end
- * to ensure that the region name is 14 characters long.
- *
- * @param[in] aLogLevel         The log level.
- * @param[in] aPlatModuleName   The platform sub-module name.
- * @param[in] aFormat           The format string.
- * @param[in] aArgs             Arguments for the format specification.
- */
-void tyLogPlatArgs(tyLogLevel aLogLevel, const char *aPlatModuleName, const char *aFormat, va_list aArgs);
-
-/**
- * Emits a log message at a given log level.
- *
- * Is intended for use by CLI only. If `TY_CONFIG_LOG_CLI` is not set or the current log
- * level is below the given log level, this function does not emit any log message.
- *
- * @param[in]  aLogLevel The log level.
- * @param[in]  aFormat   The format string.
- * @param[in]  ...       Arguments for the format specification.
- */
-void tyLogCli(tyLogLevel aLogLevel, const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
+void tyLogDebgPlat(const char *aModuleName, const char *aFormat, ...) TY_TOOL_PRINTF_STYLE_FORMAT_ARG_CHECK(2, 3);
 
 #define TY_LOG_HEX_DUMP_LINE_SIZE 73 ///< Hex dump line string size.
 

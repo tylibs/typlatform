@@ -13,7 +13,6 @@
 
 #include <ty/logging.h>
 #include <ty/common/error.hpp>
-#include <ty/platform/logging.h>
 #include <ty/platform/toolchain.h>
 
 namespace ty {

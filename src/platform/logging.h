@@ -3,8 +3,9 @@
 #ifndef TY_PLATFORM_LOGGING_H_
 #define TY_PLATFORM_LOGGING_H_
 
-#include <stdarg.h>
 #include <stdint.h>
+
+#include <ty/logging.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -18,59 +19,6 @@ extern "C" {
  *
  * @{
  */
-
-/**
- * Log level None.
- *
- * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
- * #if/#else/#endif.
- */
-#define TY_LOG_LEVEL_NONE 0
-
-/**
- * Log level Critical.
- *
- * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
- * #if/#else/#endif.
- */
-#define TY_LOG_LEVEL_CRIT 1
-
-/**
- * Log level Warning.
- *
- * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
- * #if/#else/#endif.
- */
-#define TY_LOG_LEVEL_WARN 2
-
-/**
- * Log level Notice.
- *
- * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
- * #if/#else/#endif.
- */
-#define TY_LOG_LEVEL_NOTE 3
-
-/**
- * Log level Informational.
- *
- * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
- * #if/#else/#endif.
- */
-#define TY_LOG_LEVEL_INFO 4
-
-/**
- * Log level Debug.
- *
- * @note Log Levels are defines so that embedded implementations can eliminate code at compile time via
- * #if/#else/#endif.
- */
-#define TY_LOG_LEVEL_DEBG 5
-
-/**
- * Represents the log level.
- */
-typedef int tyLogLevel;
 
 #define TY_LOG_REGION_CORE "core"
 
